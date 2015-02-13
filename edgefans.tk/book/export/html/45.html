@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" xml:lang="zh-hans" dir="ltr">
+  
+<!-- Mirrored from edgefans.tk/book/export/html/45 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:28:07 GMT -->
+<head>
+    <title>关键帧块元素</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <base  />
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"abf52a451ec7c4c9a3d7ede279cc4b89",petok:"062b87293b294fbd351047cdf013e52bed02d66e-1419674976-1800",zone:"edgefans.tk",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="../../../../ajax.cloudflare.com/cdn-cgi/nexp/dok2v%3d919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link type="text/css" rel="stylesheet" href="../../../misc/print.css" />
+      </head>
+  <body>
+              <div class="section-1">
+                <div class="section-2">
+                <div class="section-3">
+                <div class="section-4">
+                <div class="section-5">
+              <div id="node-45" class="section-6">
+  <h1 class="book-heading">关键帧块元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/loginf5f3.html?destination=node/45%23comment-form">登录</a>或<a href="../../../user/registerf5f3.html?destination=node/45%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：关键帧块元素表示对目标物体某一个属性的一系列关键帧。其元素名前半部分为 Rotate（旋转）、Scale（缩放）、Translate（平移）中的一个，后半部分为 X、Y、Z 中的一个。<br />
+请注意这里的Y、Z轴方向应在关卡 .bin 格式中的基础上相互交换。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Value</td>
+<td class="nowrap">32位浮点数</td>
+<td>可选，在 Rotate 和 Translate 中默认为 0，在 Scale 中默认为 1。指定动画开始前的值。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;RotateX Value="-90"&gt;
+  ...
+&lt;/RotateX&gt;</pre><p>子元素列表：Keyframe 元素</p>
+</div></div></div>  <div id="node-46" class="section-7">
+  <h1 class="book-heading">Keyframe 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/loginfab4.html?destination=node/46%23comment-form">登录</a>或<a href="../../../user/registerfab4.html?destination=node/46%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：Keyframe（关键帧），表示在某一特定时刻当前物体当前属性的值，关键帧与关键帧之间将使用线性插值平滑过渡。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Time</td>
+<td class="nowrap">32位浮点数</td>
+<td>可选，默认为 0。指定时刻。</td>
+</tr><tr><td class="nowrap">Value</td>
+<td class="nowrap">32位浮点数</td>
+<td>可选，在 Rotate 和 Translate 中默认为 0，在 Scale 中默认为 1。指定这一时刻的值。</td>
+</tr><tr><td class="nowrap">Delta</td>
+<td class="nowrap">32位浮点数</td>
+<td>可选，默认为 0。指定Δ。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Keyframe Time="6" Value="-89.9999888440998" Delta="19.9999977106385" /&gt;</pre></div></div></div>  </div>
+</div>
+    </div></div></div></div></div>  </body>
+
+<!-- Mirrored from edgefans.tk/book/export/html/45 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:28:07 GMT -->
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" xml:lang="zh-hans" dir="ltr">
+  
+<!-- Mirrored from edgefans.tk/book/export/html/165 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 03:39:03 GMT -->
+<head>
+    <title>Char 元素</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <base  />
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"abf52a451ec7c4c9a3d7ede279cc4b89",petok:"728eb1c9150c08eb90a695867a183110092bf4db-1419679351-1800",zone:"edgefans.tk",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="../../../../ajax.cloudflare.com/cdn-cgi/nexp/dok2v%3d919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link type="text/css" rel="stylesheet" href="../../../misc/print.css" />
+      </head>
+  <body>
+              <div class="section-1">
+                <div class="section-2">
+                <div class="section-3">
+                <div class="section-4">
+              <div id="node-165" class="section-5">
+  <h1 class="book-heading">Char 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login6cfb.html?destination=node/165%23comment-form">登录</a>或<a href="../../../user/register6cfb.html?destination=node/165%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：Char（字符），表示字体文件中的一个字符。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Character</td>
+<td class="nowrap">字符</td>
+<td>可选。表示一个字符。通常情况下你只能填写 <code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%１２３４５６７８９,.?!:'()_-=+@/"çβāäēëīíōöūü&gt;&lt;[]ñ¡À$ÉȇÜ|şğÇĕčřýňšžŮďĎŐȁÚâćęźɫąśńżŚ</code> 中的一个。如果你没有填写或填写的字符不在上面的范围内，这些字符会被放在标准文件字体的末尾（我也不知道结果会怎么样）。如果你没有填写上面某个字符中的任意一个或几个，它们会使用宽度为 1 的空白字符。</td>
+</tr><tr><td class="nowrap">Width</td>
+<td class="nowrap">8位自然数</td>
+<td>可选，默认为0。表示这个字符的宽度。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Char Character="A" Width="7"&gt;
+  ...
+&lt;/Char&gt;</pre><p>子元素列表：Rect 元素</p>
+</div></div></div>  <div id="node-166" class="section-6">
+  <h1 class="book-heading">Rect 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login105e.html?destination=node/166%23comment-form">登录</a>或<a href="../../../user/register105e.html?destination=node/166%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：Rect（矩形），表示一个字符中的一个黑色的矩形。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Point</td>
+<td class="nowrap">二维向量</td>
+<td>可选，默认为0,0。表示矩形左上角的坐标。</td>
+</tr><tr><td class="nowrap">Size</td>
+<td class="nowrap">二维向量</td>
+<td>可选，默认为0,0。表示矩形的宽度与高度。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Rect Point="0,0" Size="7,1" /&gt;</pre></div></div></div>  </div>
+</div>
+    </div></div></div></div>  </body>
+
+<!-- Mirrored from edgefans.tk/book/export/html/165 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 03:39:03 GMT -->
+</html>

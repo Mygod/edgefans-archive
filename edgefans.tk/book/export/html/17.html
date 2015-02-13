@@ -1,0 +1,711 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" xml:lang="zh-hans" dir="ltr">
+  
+<!-- Mirrored from edgefans.tk/book/export/html/17 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:12:12 GMT -->
+<head>
+    <title>.bin 关卡</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <base  />
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"abf52a451ec7c4c9a3d7ede279cc4b89",petok:"330f6086e78b3e8e9e662022b6a639949dbabee8-1419674007-1800",zone:"edgefans.tk",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="../../../../ajax.cloudflare.com/cdn-cgi/nexp/dok2v%3d919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link type="text/css" rel="stylesheet" href="../../../misc/print.css" />
+      </head>
+  <body>
+              <div class="section-1">
+                <div class="section-2">
+              <div id="node-17" class="section-3">
+  <h1 class="book-heading">.bin 关卡</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/logind26b.html?destination=node/17%23comment-form">登录</a>或<a href="../../../user/registerd26b.html?destination=node/17%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>在游戏的 levels 目录下除 mapping.xml 以外就是一大堆一大堆的 .bin 文件。这些文件存放着关卡的核心信息。该游戏的所有版本都使用这种 .bin 文件，且差异很小，基本可以相互移植。<br />
+该文件描述了这种 .bin 文件的格式：<a href="https://github.com/Mygod/Edge/blob/master/EdgeTool/Core/EdgeBin.h">https://github.com/Mygod/Edge/blob/master/EdgeTool/Core/EdgeBin.h</a><br />
+显然手动修改这种 .bin 文件的工作量和复杂度就像地狱一样！因此推荐你通过使用 EdgeTool 反编译、编译这种文件来修改/制作这种文件。</p>
+<h3>坐标系</h3>
+<p>.bin 关卡文件的坐标系与游戏中其他部分截然不同。<br />
+关卡文件中使用的三维坐标系中 X 轴与其他坐标系相同，都是正方向为右（东）。<br />
+Y 轴的正方向为后（南）。<br />
+Z 轴的正方向为上。</p>
+<h3>反编译</h3>
+<p>反编译一个 .bin 文件，你通常会得到三种文件：</p>
+<ol><li>一个 .xml 文件，这是关卡文件的核心所在，存放了一切机关之类的东西。其根元素为 Level 元素。</li>
+<li>一个 .png 文件（可能没有，这时表示里面啥东西也没有），这是旧版小地图，暂时无法断定它的真正用途。它的宽度是 (关卡宽度 + 关卡长度) / 10 向上取整，高度是 (关卡宽度 + 关卡长度 + 2 x 关卡高度) / 10 向上取整，如果文件不存在或大小不正确，其内容将被当作全空处理。</li>
+<li>一堆 .{z}.png 文件，具体见下面的《关卡地图》。</li>
+</ol></div></div></div>  <div id="node-18" class="section-4">
+  <h1 class="book-heading">Level 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login64ea.html?destination=node/18%23comment-form">登录</a>或<a href="../../../user/register64ea.html?destination=node/18%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：EDGE 关卡 XML 的根元素，表示一个关卡。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">ID</td>
+<td class="nowrap">32位整数</td>
+<td>必填。关卡的标识符。若相同ID的关卡同时安装在游戏中，则只会显示前一个。为了避免冲突，请至少使用五位数作为关卡 ID，并使用一个随机生成的前缀。</td>
+</tr><tr><td class="nowrap">Name</td>
+<td class="nowrap">文本</td>
+<td>必填。关卡名。</td>
+</tr><tr><td class="nowrap">TimeThresholds</td>
+<td class="nowrap">16位自然数列表</td>
+<td>必填。由 5 个数字组成，分别表示达到 S+、S、A、B、C 所需的秒数，<a href="../../../developers/file-formats/level-bin/mobile-levels.html">请注意这里手机版比较特殊</a>。达到 S+、S、A、B、C 所需的时间必须严格递增，否则将无法获得部分评级。</td>
+</tr><tr><td class="nowrap">Size</td>
+<td class="nowrap">三维大小</td>
+<td>必填。填写关卡大小。</td>
+</tr><tr><td class="nowrap">SpawnPoint</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。方块起始坐标。</td>
+</tr><tr><td class="nowrap">ExitPoint</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。终点坐标。如果 X 坐标 ∉ [0,宽度) 或 Y 坐标 ∉ [0,长度) 或 Z 坐标 ∉ (0,高度] 会导致游戏崩溃。</td>
+</tr><tr><td class="nowrap">Theme</td>
+<td class="nowrap">8位自然数</td>
+<td>可选，默认为0。指定关卡内部方块的外观主题。如果大于3则会在游戏中变成0。0为白色主题，1为浅灰色主题，2为深灰色主题，3为黑色主题。只有白色主题的背景会有一闪一闪的星星。（可以通过 models 添加不会闪烁的星星）请注意设置主题并不影响那些在 models 中的静态方块的外观。如果想要修改请使用 GenerateModel 元素。</td>
+</tr><tr><td class="nowrap">MusicJava</td>
+<td class="nowrap">8位自然数</td>
+<td>可选，默认为0。在Java版上播放音乐的索引。如果大于11则会在游戏中变为0。<a href="http://pan.baidu.com/share/link?shareid=3923516135&amp;uk=3104462449">音乐列表</a>（前面的数字为代号）：<a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/CKUhyOkWUU4.html">00_menus</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/ivXGtytALk0.html">01_braintonik</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/vHIzcr_M6i8.html">02_cube_dance</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/KIUaVVZZr98.html">03_essai_2</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/9bTVIQLw3Io.html">04_essai_01</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/2bUmAb8aOH4.html">05_test</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/RJDweVAP3vM.html">06_mysterycube</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/rYl-kdBRKPY.html">07_03_EDGE</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/y5FsTT58QR8.html">08_jungle</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/tbyMU2hAQ6A.html">09_RetardTonic</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/3KH5E5tFHXc.html">10_oldschool_simon</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/XwPMtT1Amdk.html">11_planant</a></td>
+</tr><tr><td class="nowrap">Music</td>
+<td class="nowrap">8位自然数</td>
+<td>可选，默认为6。在其他版本上播放音乐的索引。如果大于24则会在游戏中变为6。音乐列表（前面的数字为代号）：00_Title, 01_Eternity, 02_Quiet, 03_Pad, 04_Jingle, 05_Tec, 06_Kakkoi, 07_Dark, 08_Squadron, 09_8bits, 10_Pixel, 11_Jupiter, 12_Shame, 13_Debrief, 14_Space, 15_Voyage_geometrique, 16_Mzone, 17_R2, 18_Mystery_cube, 19_Duty, 20_PerfectCell, 21_fun, 22_lol, 23_lostway, 24_wall_street</td>
+</tr><tr><td class="nowrap">Zoom</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为-1。关卡开始时的缩放级别，在这里填写小于1或任何大于5（而不是6）的整数的效果都和填写1相同。其余功能与 <a href="../../../developers/file-formats/level-bin/Level/CameraTrigger.html">CameraTrigger 元素中的对应属性</a>相同。</td>
+</tr><tr><td class="nowrap">Angle</td>
+<td class="nowrap">16位整数</td>
+<td>可选。表示在关卡开始时高级缩放模式下的相机的观察角度。具体功能与 <a href="../../../developers/file-formats/level-bin/Level/CameraTrigger.html">CameraTrigger 元素中的对应属性</a>相同。</td>
+</tr><tr><td class="nowrap">FieldOfView</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为0。指定触发后的视野大小。具体功能与 <a href="../../../developers/file-formats/level-bin/Level/CameraTrigger.html">CameraTrigger 元素中的对应属性</a>相同。</td>
+</tr><tr><td class="nowrap">ModelTheme</td>
+<td class="nowrap">8位自然数</td>
+<td>可选，默认与 @Theme 相同。指定生成模型使用的默认主题与背景所使用的主题。设置为 3 以上可以禁用生成模型。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Level ID="309" Name="1st contact" TimeThresholds="9,25,55,85,145"
+       Size="14x26x4" SpawnPoint="3,22,62" ExitPoint="11,12,1" MusicJava="5"
+       Music="6" Zoom="1"&gt;
+  ...
+&lt;/Level&gt;</pre><p>子元素列表：<br />
+MovingPlatform<br />
+Bumper<br />
+FallingPlatform<br />
+Checkpoint<br />
+CameraTrigger<br />
+Prism<br />
+Fan（<a href="../../../developers/file-formats/level-bin/deprecated.html">已过时</a>）<br />
+Button<br />
+ButtonSequence<br />
+OtherCube<br />
+DarkCube<br />
+ResizerGrow &amp; ResizerShrink<br />
+MiniBlock（<a href="../../../developers/file-formats/level-bin/deprecated.html">已过时</a>）</p>
+</div></div></div>  <div id="node-19" class="section-5">
+  <h1 class="book-heading">MovingPlatform 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/loginf9d0.html?destination=node/19%23comment-form">登录</a>或<a href="../../../user/registerf9d0.html?destination=node/19%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/movingplatforms.png~original" /><br />
+说明：MovingPlatform（移动方块），表示一个会移动的方块，其颜色由/Level/@Theme指定。请注意移动方块顶部的颜色永远都是浅色，而不是像模型中的静态方块那样深浅相间。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">ID</td>
+<td class="nowrap">ID</td>
+<td>可选。填写后可用于被引用。</td>
+</tr><tr><td class="nowrap">AutoStart</td>
+<td class="nowrap">布尔型</td>
+<td>可选，默认为True。指定在关卡开始时是否该方块是否需要移动。</td>
+</tr><tr><td class="nowrap">LoopStartIndex</td>
+<td class="nowrap">8位自然数</td>
+<td>可选，默认为1。指定当移动方块移动到最后一个路点后的下一个路点的索引（从1开始）。将该值设置为0可以使移动方块在移动到最后一个路点后停止移动。若索引大于路点数量很可能会导致一些BUG。</td>
+</tr><tr><td class="nowrap">Clones</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为-1。<a href="../../../developers/file-formats/level-bin/deprecated.html">已过时</a>。</td>
+</tr><tr><td class="nowrap">FullBlock</td>
+<td class="nowrap">布尔型</td>
+<td>可选，默认为True。指定该移动方块是完整的一个方块还是只有上半个。（请注意这只是外观上不同，在游戏物理引擎中两者并无差别）</td>
+</tr><tr><td class="nowrap">RelatedTo</td>
+<td class="nowrap">ID</td>
+<td>可选。<a href="../../../developers/syntactic-sugar.html">语法糖</a>。指定后该移动方块会与目标移动方块保持相对静止，而其 Waypoint 子元素将会被加到目标移动方块移动序列之后。</td>
+</tr><tr><td class="nowrap">Offset</td>
+<td class="nowrap">三维坐标</td>
+<td>可选。<a href="../../../developers/syntactic-sugar.html">语法糖</a>。仅在指定 @RelatedTo 后此项才有效。指定与目标移动方块的偏移量。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;MovingPlatform ID="Block19" AutoStart="False" LoopStartIndex="0"&gt;
+  ...
+&lt;/MovingPlatform&gt;</pre><p>子元素列表：<br />
+Waypoint</p>
+</div></div></div>  <div id="node-20" class="section-6">
+  <h1 class="book-heading">Waypoint 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/logind030.html?destination=node/20%23comment-form">登录</a>或<a href="../../../user/registerd030.html?destination=node/20%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：Waypoint（路点），表示移动方块到达的一个点。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Position</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。该点的坐标。请注意这里的Z坐标应该在原坐标基础上-1，否则在游戏中将显示不正常！</td>
+</tr><tr><td class="nowrap">TravelTime</td>
+<td class="nowrap">16位自然数</td>
+<td>可选，默认为0。移动到该点需要使用的帧（1/22秒）数。请注意如果该值过大可能会导致走到一半弹回来的 BUG！如果遇到这样的 BUG，如果可能请把一个路点拆成两个或多个。</td>
+</tr><tr><td class="nowrap">PauseTime</td>
+<td class="nowrap">16位自然数</td>
+<td>可选，默认为0。在该点停留的帧（1/22秒）数。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Waypoint Position="-1,-81,4" PauseTime="24" /&gt;</pre></div></div></div>  </div>
+</div>
+<div id="node-21" class="section-5">
+  <h1 class="book-heading">Bumper 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/loginbf28.html?destination=node/21%23comment-form">登录</a>或<a href="../../../user/registerbf28.html?destination=node/21%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/bumper.png~original" /><br />
+说明：Bumper（撞击器），表示一个支持撞击的方块。请注意撞击器顶部的颜色永远都是浅色，而不是像模型中的静态方块那样深浅相间。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">ID</td>
+<td class="nowrap">ID</td>
+<td>可选。填写后可用于被@AffectBumpers引用。</td>
+</tr><tr><td class="nowrap">Enabled</td>
+<td class="nowrap">布尔型</td>
+<td>可选，默认为True。指定撞击器在关卡开始时是否被启用。</td>
+</tr><tr><td class="nowrap">Position</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。指定撞击器的位置。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Bumper Position="11,4,0"&gt;
+  ...
+&lt;/Bumper&gt;</pre><p>子元素列表：<br />
+North &amp; East &amp; South &amp; West 元素 各 0～1 个</p>
+</div></div></div>  <div id="node-23" class="section-6">
+  <h1 class="book-heading">North &amp; East &amp; South &amp; West 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/logina736.html?destination=node/23%23comment-form">登录</a>或<a href="../../../user/registera736.html?destination=node/23%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：撞击方向元素指定撞击器在该方向撞击的动作。省略该元素表示在该方向上不撞击。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">StartDelay</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为0。表示从关卡开始到第一次撞击之间的帧（1/22秒）数。若为-1表示不撞击。</td>
+</tr><tr><td class="nowrap">PulseRate</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为0。表示两次撞击之间间隔的帧（1/22秒）数。若为-1表示不撞击。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;South PulseRate="30" /&gt;</pre></div></div></div>  </div>
+</div>
+<div id="node-25" class="section-5">
+  <h1 class="book-heading">FallingPlatform 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login87a7.html?destination=node/25%23comment-form">登录</a>或<a href="../../../user/register87a7.html?destination=node/25%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：FallingPlatform（可掉落平台），表示一个受到方块压过后在一段时间后就会消失的方块，其外观为一块会掉落的瓷砖。请注意：</p>
+<ol><li>可掉落平台有腐蚀一切静态方块包括终点在内（除 <a href="../../../developers/file-formats/level-bin/Level/Bumper.html">Bumper</a> 外）的功能！</li>
+<li>当可掉落平台的 Z 坐标 ∈ (0,高度] 且 (X 坐标 ∈ [0,宽度] 且 Y 坐标 = 长度 或 X 坐标 = 宽度 且 Y 坐标 ∈ [0,长度]) 时可掉落平台虽然可见但是可以被玩家方块穿透。</li>
+<li>当玩家方块站在一块 Z 坐标 ≤ 0 的可掉落平台上时将无法向上翻滚/EDGE！</li>
+</ol><p>属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Position</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。指定可掉落平台的坐标。</td>
+</tr><tr><td class="nowrap">FloatTime</td>
+<td class="nowrap">16位自然数</td>
+<td>可选，默认为20。表示压过到掉落之间间隔的帧（1/22秒）数。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;FallingPlatform Position="14,3,1" FloatTime="10" /&gt;</pre></div></div></div>  </div>
+<div id="node-27" class="section-5">
+  <h1 class="book-heading">Checkpoint 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login478d.html?destination=node/27%23comment-form">登录</a>或<a href="../../../user/register478d.html?destination=node/27%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：Checkpoint（存档点），若在方块经过这一点（或这一范围）后死亡（或在菜单中选择 last checkpoint），会恢复到这一点，并恢复到达这一点时的状态。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Position</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。指定存档点的坐标。</td>
+</tr><tr><td class="nowrap">RespawnZ</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为0。指定恢复时方块的Z坐标。</td>
+</tr><tr><td class="nowrap">Radius</td>
+<td class="nowrap">二维向量</td>
+<td>可选，默认为0,0。使方块的坐标与存档点坐标之差的绝对值小于此值时也认为是到达了存档点。（换言之可以使存档点变成一个矩形）</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Checkpoint Position="6,22,1" RespawnZ="1" Radius="0,1" /&gt;</pre><p>注意：</p>
+<ul><li>在关卡中一旦排在后面的 Checkpoint 被激活后，在这个 Checkpoint 及之前的所有 Checkpoint 将不能被激活，因此顺序是非常重要的；</li>
+<li>Checkpoint 只有玩家方块停在该位置或从其他位置翻到这一位置（如 arksecktor 一关所示）才会被激活，在空中降落时无法激活任何 Checkpoint。</li>
+</ul></div></div></div>  </div>
+<div id="node-28" class="section-5">
+  <h1 class="book-heading">CameraTrigger 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login8b64.html?destination=node/28%23comment-form">登录</a>或<a href="../../../user/register8b64.html?destination=node/28%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：CameraTrigger（相机触发器），会在到达这一点（或这一范围）时改变缩放级别。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Position</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。指定相机触发点的坐标。</td>
+</tr><tr><td class="nowrap">Radius</td>
+<td class="nowrap">二维向量</td>
+<td>可选，默认为0,0。使方块的坐标与相机触发器坐标之差的绝对值小于此值时也认为是触发了相机触发器。（换言之可以使相机触发点变成一个矩形）</td>
+</tr><tr><td class="nowrap">Zoom</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为-1。指定触发后的缩放级别，即相机离方块的距离，从近到远分别是6、5、1、2、3、4。填写为负数或不填写表示启动高级相机模式。请注意启动高级相机模式后必须填写@Duration，否则无效！填写其他值同样无效。</td>
+</tr><tr><td class="nowrap">Angle</td>
+<td class="nowrap">16位整数</td>
+<td>可选。指定触发后相机的观察角度。22 为默认观察角度，大于等于 0 时使用透视投影，且该值越大观察角度越低，大于 184 时的效果与等于 184 相同；小于 0 时使用平行投影，其数值无实际效果。请注意 @Angle 在正负交换时会闪一下。填写后 @FieldOfView 无效。</td>
+</tr><tr><td class="nowrap">FieldOfView</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为 22。指定触发后的视野大小。大于 184 时的效果与等于 184 相同；小于 0 时视角会变得极小，只能看到方块，其数值无实际效果。</td>
+</tr><tr><td class="nowrap">StartDelay</td>
+<td class="nowrap">16位自然数</td>
+<td>可选，默认为0。指定触发到开始移动相机之间间隔的帧（1/22 秒）数。仅在高级相机模式下可用。</td>
+</tr><tr><td class="nowrap">Duration</td>
+<td class="nowrap">16位自然数</td>
+<td>可选，默认为0。指定相机从当前状态转换到目标状态所花费的帧（1/22 秒）数。仅在高级相机模式下可用。</td>
+</tr><tr><td class="nowrap">SingleUse</td>
+<td class="nowrap">布尔型</td>
+<td>可选，默认为 False。指定是否只能触发一次。仅在高级相机模式下可用。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;CameraTrigger Position="4,9,1" Radius="1,2" Zoom="1" /&gt;</pre><p>请注意：</p>
+<ol><li>在 @Zoom, @Angle, @FieldOfView 三个属性中只能填写一个，在两个及以上被填写有效值的情况下，只有排在最前面的会生效。若三个都不填写则表示重置 @Angle 和 @FieldOfView 到默认值 22。</li>
+<li>@FieldOfView 与 @Angle 在任何情况下都不能并存。如在设置 @FieldOfView 时 @Angle 会被回到 22。反之亦然。</li>
+</ol></div></div></div>  <div id="node-139" class="section-6">
+  <h1 class="book-heading">高级相机模式</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/loginb875.html?destination=node/139%23comment-form">登录</a>或<a href="../../../user/registerb875.html?destination=node/139%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>　　高级相机模式是 Two Tribes 添加的功能，之所以称之为高级是因为 mobigame 的 EDGE 是 <a href="http://zh.wikipedia.org/wiki/偽三維">2.5D</a>，其中并没有也很难有这样的实现。实际上在真正的三维绘图中高级相机模式中的一些概念都是很常见的。<br />
+　　注意：高级相机模式的动画即使在暂停时也会继续播放！</p>
+<h3>效果演示</h3>
+<p><embed src="http://www.tudou.com/v/VmstqkRaVJg/&amp;resourceId=112031677_05_02_99&amp;tid=0/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="400"></embed></p>
+<h3>透视投影</h3>
+<p><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-1.jpg~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-1.jpg~original" /></a><br />
+　　透视投影的原理类似于<a href="http://zh.wikipedia.org/wiki/小孔成像">小孔成像</a>（区别在于物和像在孔的同一侧），由于它和眼球的成像（凸透镜成像）效果类似，符合远大近小的规律，因此使用透视投影可以更好地模拟出真实的 3D 世界在眼球中的影像。<br />
+　　简单来说透视投影原理就是：在相机前方选择一个平面使其与观测方向垂直，则在 3D 世界中的任意一点在该平面上的投影点为该点与视点的连线与平面的交点。如下图所示。<br /><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-2.jpg~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-2.jpg~original" /></a><br />
+　　接下来我们谈谈视野（Field of View，常简写为 FoV）大小，视野大小是透视投影特有的。上面我们提到的平面大小是无限的，而人眼观察到的图像大小是有限的，同样地游戏的屏幕大小也是有限的，因此我们能看到的部分与视点连线的夹角大小就称为视野大小，如下图所示。通常情况下视野大小的单位为°或弧度，可惜我们并不知道它在 EDGE 中的单位。<br /><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-3.jpg~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-3.jpg~original" /></a><br />
+　　视野（Field of View）与缩放级别（Zoom Level）都是数字越小看得越少，数字越大看得越多但是区别在于缩放级别指的是相机与被观察物体之间的距离，而且小地图的大小会随之改变；而视野则是相机可观察到的角度范围大小，而且小地图的大小不会随之改变。由于人眼的视野有限，如果视野过大就会显得不自然。在上面的视频中你会注意到当 @FieldOfView=180 时远处（或者说四周）的物体看起来不太自然。<br />
+　　最后我们再谈谈观察角度，如下图所示（图中的 @Angle=0 应改为 @Angle=22 ），当 @Angle=22 时观察角度与地面的夹角为 45°，@Angle 增大时夹角减小。同样我们并不知道这里的单位是什么。<br /><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/advanced-camera-mode-angle.png~original" /></p>
+<h3>平行投影</h3>
+<p>　　平行投影与太阳光（由于太阳距离很远可近似看成是平行光）投在若干个 3D 物体上在一个平面（如地面）上留下的影子的效果更加接近。平行投影中由于没有视点，也就没有视野大小的概念。不过应该可以通过调整裁剪的平面大小来达到与视野类似的效果，平行投影的观察角度可以靠平面的倾斜角度和投影方向调整，不过反正游戏中也没给你这功能，就不研究了。<br />
+　　在太阳光下飞机在空中打在地面上的影子大小和停在地面上的影子大小差别不大，在平行投影中也是这样，不再是远大近小。东西不论远近，大的投影出来就是大的，小的投影出来就是小的。P.S. 由于在 PC 版的游戏中平行投影效果并不好，我个人猜测 Two Tribes 仿照了太阳光的原理，把相机距离拉得很远，而把视野大小弄得极小来达到平行投影的效果。<br />
+　　此外你可以注意到在平行投影中各条平行线在投影后仍然是平行的，但是在透视投影中则不一定。</p>
+</div></div></div>  </div>
+</div>
+<div id="node-30" class="section-5">
+  <h1 class="book-heading">Prism 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login74ec.html?destination=node/30%23comment-form">登录</a>或<a href="../../../user/register74ec.html?destination=node/30%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/prism.png~original" /><br />
+说明：Prism（棱柱），取得 S(+) 的必经之路，吃到后可在约20步内加速的神奇玩意儿。<br />
+属性列表：
+<table><thead><tr><th class="nowrap">属性名</th>
+            <th class="nowrap">数据类型</th>
+            <th>备注</th>
+        </tr></thead><tbody><tr><td class="nowrap">Position</td>
+            <td class="nowrap">三维坐标</td>
+            <td>必填。指定棱柱的位置。</td>
+        </tr><tr><td class="nowrap">Energy</td>
+            <td class="nowrap">8位自然数</td>
+            <td>可选，默认为1。<a href="../../../developers/file-formats/level-bin/deprecated.html">已过时</a>。</td>
+        </tr></tbody></table><pre title="样例" class="brush: xml">&lt;Prism Position="6,22,1" /&gt;</pre></div></div></div>  </div>
+<div id="node-32" class="section-5">
+  <h1 class="book-heading">Button 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/loginbde0.html?destination=node/32%23comment-form">登录</a>或<a href="../../../user/registerbde0.html?destination=node/32%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/button.png~original" /><br /><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/button_ghosted.png~original" /><br />
+说明：Button（按钮），表示一个可以被方块按下的按钮。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">ID</td>
+<td class="nowrap">ID</td>
+<td>可选。填写后可用于被@AffectButtons引用。</td>
+</tr><tr><td class="nowrap">Visible</td>
+<td class="nowrap">可空布尔型</td>
+<td>可选，默认为True。指定按钮是否可见。如果设置为 Null，则该按钮将是半透明的。只有在设置为 True 时按下按钮才有声效。</td>
+</tr><tr><td class="nowrap">DisableCount</td>
+<td class="nowrap">8位自然数</td>
+<td>可选，默认为0。此属性指定了该按钮在这种情况下总共可以被禁用多少次，其应用可见 rodeo 一关。如果一个按钮已经被禁用 @DisableCount 次及以上时任何其他按钮企图再次启用该按钮都会失败。如果 @DisableCount 为 0，该按钮可以被不断地启用。</td>
+</tr><tr><td class="nowrap">Mode</td>
+<td class="nowrap">特殊</td>
+<td>可选，默认为StayDown。若按钮在ButtonSequence中则此项无效。按钮有按下（禁用）或弹起（启用）两种状态。StayDown表示按钮在没有被启动的情况下只能被按下一次，离开该按钮后保持被按下（禁用）的状态。StayUp表示按钮可以被按下多次。Toggle表示一旦方块离开按钮该按钮就会被弹起，同时受影响的移动方块将恢复原位。请注意按下非 @Mode=StayDown 的按钮不算禁用按钮！</td>
+</tr><tr><td class="nowrap">MovingPlatformID</td>
+<td class="nowrap">ID</td>
+<td>可选，默认为使用@Position的坐标。指定与按钮保持相对静止的移动方块的ID。</td>
+</tr><tr><td class="nowrap">Position</td>
+<td class="nowrap">三维坐标</td>
+<td>可选，默认为0,0,0。指定按钮在不与任何移动方块绑定的情况下的坐标。</td>
+</tr><tr><td class="nowrap">AffectMovingPlatforms</td>
+<td class="nowrap">带数据的ID列表</td>
+<td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要影响的移动方块ID。若数据为0表示遍历所有的路点，否则表示遍历数据指定个路点。</td>
+</tr><tr><td class="nowrap">AffectBumpers</td>
+<td class="nowrap">带数据的ID列表</td>
+<td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要影响的撞击器ID，撞击器被影响后将会切换启用/禁用状态。</td>
+</tr><tr><td class="nowrap">TriggerAchievements</td>
+<td class="nowrap">带数据的ID列表</td>
+<td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要触发的成就ID。数据表示部分成就使用的元数据。（仅用于 Snowblind 成就）</td>
+</tr><tr><td class="nowrap">AffectButtons</td>
+<td class="nowrap">带数据的ID列表</td>
+<td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要影响的按钮ID。设置此项后被引用的按钮将在关卡开始时被禁用，在按下此按钮时目标按钮的启用/禁用状态将被切换。你可以通过将数据设为1来表示默认启用目标按钮。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Button ID="Button2" Visible="False" Position="11,11,1"
+        AffectButtons="Button1" /&gt;</pre></div></div></div>  </div>
+<div id="node-33" class="section-5">
+  <h1 class="book-heading">ButtonSequence 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login28ac.html?destination=node/33%23comment-form">登录</a>或<a href="../../../user/register28ac.html?destination=node/33%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：ButtonSequence（按钮序列），表示一堆可以被方块按下的按钮。在全部按下后可以触发一些东西，并播放声效。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">SequenceInOrder</td>
+<td class="nowrap">布尔型</td>
+<td>可选，默认为False。指定是否强制按钮序列要用指定的顺序按下。</td>
+</tr><tr><td class="nowrap">AffectMovingPlatforms</td>
+<td class="nowrap">带数据的ID列表</td>
+<td>可选。指定一堆要影响的移动方块ID。若数据为0表示遍历所有的路点，否则表示遍历数据指定个路点。</td>
+</tr><tr><td class="nowrap">AffectBumpers</td>
+<td class="nowrap">带数据的ID列表</td>
+<td>可选。指定一堆要影响的撞击器ID，撞击器被影响后将会切换启用/禁用状态。</td>
+</tr><tr><td class="nowrap">TriggerAchievements</td>
+<td class="nowrap">带数据的ID列表</td>
+<td>可选。指定一堆要触发的成就ID。数据表示部分成就使用的元数据。（仅用于 Snowblind 成就）</td>
+</tr><tr><td class="nowrap">AffectButtons</td>
+<td class="nowrap">带数据的ID列表</td>
+<td>可选。指定一堆要影响的按钮ID。设置此项后被引用的按钮将在关卡开始时被禁用，在按下此按钮时目标按钮的启用/禁用状态将被切换。你可以通过将数据设为1来表示默认启用目标按钮。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;ButtonSequence SequenceInOrder="True"
+                AffectMovingPlatforms="Block10,Block11,Block12"
+                AffectBumpers="Bumper1,Bumper2,Bumper3,Bumper4"&gt;
+  ...
+&lt;/ButtonSequence&gt;</pre><p>子元素列表：<br /><a href="../../../Button.html">Button</a>（至少2个）</p>
+</div></div></div>  </div>
+<div id="node-34" class="section-5">
+  <h1 class="book-heading">OtherCube 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/logine2ae.html?destination=node/34%23comment-form">登录</a>或<a href="../../../user/registere2ae.html?destination=node/34%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：OtherCube（提示方块），表示一个提示你如何过关的方块。触发后离开触发点，提示方块就会消失。<a href="../../../developers/file-formats/level-bin/cubes.html">它可以和关卡中的部分元素交互。</a></p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">PositionTrigger</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。指定“?”显示的坐标位置，方块到达该位置时会激活提示方块。请注意提示方块可以激活多次！</td>
+</tr><tr><td class="nowrap">MovingBlockSync</td>
+<td class="nowrap">ID</td>
+<td>可选。指定要与其同步的MovingPlatform的ID。</td>
+</tr><tr><td class="nowrap">PositionCube</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。指定提示方块的初始位置。</td>
+</tr><tr><td class="nowrap">Radius</td>
+<td class="nowrap">二维向量</td>
+<td>可选，默认为0,0。<a href="../../../developers/syntactic-sugar.html">语法糖</a>。使方块的坐标与触发点坐标之差的绝对值小于等于此值时也认为是到达了触发点。（换言之可以使触发点变成一个矩形）</td>
+</tr><tr><td class="nowrap">Mode</td>
+<td class="nowrap">特殊</td>
+<td>可选，默认为AutoHide。<a href="../../../developers/syntactic-sugar.html">语法糖</a>。填写MoveAway后被触发的位置下方的方块会开始变色。（<a href="http://www.tudou.com/programs/view/QUHjSYtGDZ8/">wire的视频演示</a>）填写Hole后被触发位置下方会变得什么都没有，下落到洞中后会自动瞬移到洞口并不再下落。（<a href="http://www.tudou.com/programs/view/96D37ut4YVM/">furious bot的视频演示</a>）选择AutoHide后离开该方块时提示方块会消失，否则不会消失。MoveAway只能生效一次，之后会变成AutoHide模式。Hole也只能生效一次，之后再进入不会再次下落，也不会触发提示方块。P.S. 原理是在触发位置放一个MovingPlatform和一个Button，并在方块移动到触发位置时将方块移开，来避免方块离开时提示方块消失。</td>
+</tr><tr><td class="nowrap">MoveDirection</td>
+<td class="nowrap">二维向量</td>
+<td>可选，在AutoHide模式下默认为0,0,0，在MoveAway模式下为0,-1,0，在Hole模式下为0,0,1。<a href="../../../developers/syntactic-sugar.html">语法糖</a>。在设置了MovingPlatform/Waypoint的情况下此属性将被忽略。该属性在AutoHide模式下此属性无意义，在其他模式下此属性表示触发方块的移动方向向量。在Hole模式中实际触发位置以及MovingPlatform的初始位置为原来触发位置减去该向量的值。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;OtherCube PositionTrigger="70,27,1" MovingBlockSync="Block29"
+           PositionCube="69,25,1"&gt;
+  ...
+&lt;/OtherCube&gt;</pre><p>子元素列表：<br /><a href="../../../MovingPlatform.html">MovingPlatform 元素</a>（仅在非AutoHide模式下可用，@AutoStart与@Looped的默认值为False，在没有子元素的情况下会有两个路点，即从@PositionTrigger开始向@MoveDirection移动，@TravelTime在MoveAway模式下为32000，在Hole模式下为1）<br /><a href="../../../Button.html">Button 元素</a>（仅在非AutoHide模式下可用，@Position默认值为@PositionTrigger，@Visible默认值为False，@AffectMovingPlatforms会自动添加与其对应的MovingPlatform）<br />
+按键事件元素</p>
+</div></div></div>  <div id="node-35" class="section-6">
+  <h1 class="book-heading">按键事件元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login01c6.html?destination=node/35%23comment-form">登录</a>或<a href="../../../user/register01c6.html?destination=node/35%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：按键事件元素，表示一个方块按键的事件。元素名前半部分是West, East, North, South中的一个，表示移动的方向；元素名后半部分是Up或Down，表示是按下这个方向的键还是放开。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">TimeOffset</td>
+<td class="nowrap">16位自然数</td>
+<td>可选，默认为0。表示从方块被触发到按键间隔的帧（1/22秒）数。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;WestDown TimeOffset="14" /&gt;</pre></div></div></div>  </div>
+</div>
+<div id="node-36" class="section-5">
+  <h1 class="book-heading">DarkCube 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login05bc.html?destination=node/36%23comment-form">登录</a>或<a href="../../../user/register05bc.html?destination=node/36%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded">说明：DarkCube（黑暗方块），表示一个提示你如何过关或阻碍你过关的方块。触发后离开触发点，黑暗方块也不会消失。<a href="../../../developers/file-formats/level-bin/cubes.html">它可以和关卡中的部分元素交互。</a><br />
+属性列表：
+<table><thead><tr><th class="nowrap">属性名</th>
+            <th class="nowrap">数据类型</th>
+            <th>备注</th>
+        </tr></thead><tbody><tr><td class="nowrap">PositionTrigger</td>
+            <td class="nowrap">三维坐标</td>
+            <td>必填。方块到达该位置时会激活黑暗方块。请注意黑暗方块只会被激活一次！</td>
+        </tr><tr><td class="nowrap">Radius</td>
+            <td class="nowrap">二维向量</td>
+            <td>可选，默认为0,0。使方块的坐标与触发点坐标之差的绝对值小于此值时也认为是到达了触发点。（换言之可以使触发点变成一个矩形）</td>
+        </tr><tr><td class="nowrap">MovingBlockSync</td>
+            <td class="nowrap">ID</td>
+            <td>可选。指定要与其同步的MovingPlatform的ID。</td>
+        </tr><tr><td class="nowrap">PositionCube</td>
+            <td class="nowrap">三维坐标</td>
+            <td>必填。指定黑暗方块的初始位置。</td>
+        </tr></tbody></table><pre title="样例" class="brush: xml">&lt;DarkCube PositionTrigger="17,19,1" Radius="1,0" PositionCube="17,9,1"&gt;
+  ...
+&lt;/DarkCube&gt;</pre>
+子元素列表：<a href="../../../developers/file-formats/level-bin/Level/OtherCube/key-event.html">按键事件元素</a></div></div></div>  </div>
+<div id="node-37" class="section-5">
+  <h1 class="book-heading">ResizerGrow &amp; ResizerShrink 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login3123.html?destination=node/37%23comment-form">登录</a>或<a href="../../../user/register3123.html?destination=node/37%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/resizer.png~original" /><br />
+说明：ResizerGrow（方块放大器） &amp; ResizerShrink（方块缩小器），表示一个可以使方块放大/缩小的按钮。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Position</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。指定方块尺寸调整器的位置，游戏会自动在该点下方添加一个静态方块。Z 坐标 ＞ 关卡高度 或 Z 坐标 ≤ 0 会导致游戏崩溃，X 坐标 ≥ 关卡宽度 或 X 坐标 ＜ 0 或 Y 坐标 ≥ 关卡长度 或 Y 坐标 ＜ 0 会导致该位置虽然在游戏中可见但没有实际效果，也不会添加静态方块，并有几率导致游戏崩溃。若与 <a href="../../../developers/file-formats/level-bin/Level.html">/Level</a>/@ExitPoint 重合，关卡终点将被腐蚀。</td>
+</tr><tr><td class="nowrap">Visible</td>
+<td class="nowrap">布尔型</td>
+<td>可选，默认为True。指定方块尺寸调整器在关卡中是否可见。</td>
+</tr><tr><td class="nowrap">Radius</td>
+<td class="nowrap">二维向量</td>
+<td>可选，默认为0,0。<a href="../../../developers/syntactic-sugar.html">语法糖</a>。使方块的坐标与方块尺寸调整器坐标之差的绝对值小于等于此值时也缩放方块。（换言之可以使方块尺寸调整器变成一个矩形）</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;ResizerShrink Position="14,2,3" Visible="False" /&gt;</pre></div></div></div>  </div>
+</div>
+<div id="node-85" class="section-4">
+  <h1 class="book-heading">Z 轴</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login3c30.html?destination=node/85%23comment-form">登录</a>或<a href="../../../user/register3c30.html?destination=node/85%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Z 轴是 X、Y、Z 三轴中内容最丰富的。<br />
+通常情况下 Z=0 上的静态方块只有上半个，在 Z=0-3 之间静态方块、移动方块与撞击器东面、南面与上面的颜色（其中上面的颜色变化不明显，如果是用模型的静态方块则还会有深浅相间的效果）会随着高度升高而变浅，而 Z&gt;3 部分的颜色没有变化。如下图 higher 一关中所示。<br /><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/z-higher.png~original" /><br />
+当 Z&lt;0 时，相机不会再跟随玩家方块的移动而移动，但是小地图还会随着玩家方块的移动而移动，如下图 black hole 一关中所示。<br /><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/z-black-hole.png~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/z-black-hole.png~original" /></a><br />
+只要玩家方块移动到 Z&lt;0 后 dead 计数器就会加 1，但是只有当 Z&lt;-20 时才被视为死亡，下图是 Z 刚刚小于 -20 的一瞬间，在之后的一帧它立即被送回存档点。<br /><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/z-20.png~original" /></p>
+</div></div></div>  </div>
+<div id="node-204" class="section-4">
+  <h1 class="book-heading">关卡地图</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/logina42f.html?destination=node/204%23comment-form">登录</a>或<a href="../../../user/registera42f.html?destination=node/204%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>　　关卡地图就是那一坨 .{z}.png 文件，每一个文件都表示所在的 z 坐标那一层上的地图。</p>
+<h3>快速入门</h3>
+<p>　　第 0 层有方块的使用 #FFFF80 [rgb(255,255,128)] 填充，其他层使用 #FFFFFF [rgb(255,255,255)]，剩下没有方块的使用 #000000 [rgb(0,0,0)] 填充即可。<br />
+　　在生成模型没有被 <a href="../../../developers/file-formats/level-bin/Level.html">Level/@ModelTheme</a> 禁用的情况下编译关卡可以得到一个 <a href="../../../developers/file-formats/asset/eso.html">.eso 模型</a>，将其放在 models 文件夹即可。</p>
+<h3>特别的技巧</h3>
+<h4>R 通道（方块模式）</h4>
+<table><tr><td class="nowrap">255 (0xFF)</td>
+<td>方块模式。玩家方块可以与这个方块碰撞。具体值没有影响。</td>
+</tr><tr><td class="nowrap">224-254 (0xE0 - 0xFE)</td>
+<td>静态发光移动方块模式。具体值没有影响。</td>
+</tr><tr><td class="nowrap">192-223 (0xC0 - 0xDF)</td>
+<td>静态发光半移动方块模式。具体值没有影响。</td>
+</tr><tr><td class="nowrap">160-191 (0xA0 - 0xBF)</td>
+<td>静态移动方块模式。具体值没有影响。</td>
+</tr><tr><td class="nowrap">128-159 (0x80 - 0x9F)</td>
+<td>静态半移动方块模式。具体值没有影响。</td>
+</tr><tr><td class="nowrap">0-127 (0x00 - 0x7F)</td>
+<td>无方块模式。玩家方块不会与这个方块碰撞。</td>
+</tr></table><p>移动方块模式下没有静态方块，因为它使用不移动的<a href="../../../developers/file-formats/level-bin/Level/MovingPlatform.html">移动方块</a>来代替。半移动方块即只有上半格，对应 @FullBlock=False。发光移动方块即看起来像在移动，就像在 crystal mine 一关中一样，这也是通常的移动方块使用方式。这种模式需要注意：</p>
+<ol><li>静态方块在移动版中会有具体的形状（因为移动版不支持模型），在 Z=0 处只有上半层，其他地方都是完整的方块，但在 PC 版中只是让玩家方块碰撞用，在关卡中没有具体的形状，你需要使用模型来使方块具有外观；</li>
+<li>不推荐生成模型，会出现重叠的现象；（如果你实在想得不行，那好吧，我想应该还是可以的）</li>
+<li>即使移动方块不在移动，游戏也会将其当作移动方块，因此一些机关（如在移动方块上 EDGE 时很可能会停在一块上而不会被另一块捡起）可能会失效，也可能会出现穿墙 BUG；</li>
+<li>地板颜色为同一种颜色，而不是棋盘式的深浅相间；</li>
+<li>不同的方格之间有很明显的线条分隔。</li>
+</ol><h4>G 通道（模型主题）</h4>
+<table><tr><td class="nowrap">192-255 (0xC0 - 0xFF)</td>
+<td>默认主题，即 Level/@ModelTheme。具体值没有影响。</td>
+</tr><tr><td class="nowrap">128-191 (0x80 - 0xBF)</td>
+<td>使用除了上面一个以外最亮（即数字最小）的主题。具体值没有影响。</td>
+</tr><tr><td class="nowrap">64-127 (0x40 - 0x7F)</td>
+<td>使用除了上面两个以外较亮（即数字较小）的主题。具体值没有影响。</td>
+</tr><tr><td class="nowrap">0-63 (0x00 - 0x3F)</td>
+<td>还剩最后一个主题当然就归它啦。具体值没有影响。</td>
+</tr></table><h4>B 通道（模型高度）</h4>
+<table><tr><td class="nowrap">255 (0xFF)</td>
+<td>生成一个完整的方块模型。</td>
+</tr><tr><td class="nowrap">2-254 (0x02 - 0xFE)</td>
+<td>生成只有上面 1/254 - 253/254 个方块的模型。</td>
+</tr><tr><td class="nowrap">1 (0x01)</td>
+<td>生成只有上面 0% 的方块模型。（即只有最顶上一层）</td>
+</tr><tr><td class="nowrap">0 (0x00)</td>
+<td>不为此方块生成模型。</td>
+</tr></table><p>常用高度：<a href="../../../developers/file-formats/level-bin/Level/FallingPlatform.html">可掉落平台</a> 13.2893%, 35, 0x23；半格 50%, 128, 0x80。</p>
+<h3>更多信息</h3>
+<p>由 EdgeTool 生成的模型与标准关卡的模型还是存在一些细微的区别：</p>
+<ol><li>生成的 .eso 文件在生成方块的东面和南面时会比标准关卡中的 .eso 文件中多生成一些<a href="../../../developers/file-formats/asset/eso/Models/Model/Triangle.html">三角形</a>，这将导致编译出的文件大小增大 50%，并在三角形数量极多的情况下拖慢游戏在超级低端设备上的流畅运行。</li>
+<li>标准关卡中的 .eso 文件在终点处有一个下凹的装置，但是既然游戏中看不到，生成的 .eso 文件中去掉了这个冗余的东西。</li>
+<li>由于生成的 .eso 文件使用的是游戏自带（或 <a href="../../../mods/edge-epic.html">EDGE Epic</a> 中）的 <a href="../../../developers/file-formats/asset/ema.html">.ema 材料</a>以及 .eso 模型（见附表），如果你的关卡太大可能会导致超过背景的大小而使背景没有装饰物。（不过这个问题并不是很大）</li>
+</ol><p>　　想知道更多关于生成的 .eso 文件的技术细节，请查看<a href="../../../developers/file-formats/asset/eso/level-model.html">这篇文章</a>。如果你不嫌麻烦，你同样可以在阅读这篇文章后修改或自己制作 .eso 模型来打造关卡的外观（包括往里面加几张图片之类）。</p>
+<p>附主题所对应使用的模型列表：</p>
+<table><thead><tr><th>主题索引</th>
+<th>Models/@NodeChild (背景)</th>
+<th>Models/Model/@MaterialAsset (方块)</th>
+<th>源关卡 ID</th>
+</tr></thead><tbody><tr><td>0</td>
+<td>67228D77050DB82A</td>
+<td>2F2CC05D050DB82A</td>
+<td>level551</td>
+</tr><tr><td>1</td>
+<td>1DE2AE87050DB82A</td>
+<td>55ECE3AD050DB82A</td>
+<td>level512</td>
+</tr><tr><td>2</td>
+<td>8A7DBFAE050DB82A</td>
+<td>C273F284050DB82A</td>
+<td>level532</td>
+</tr><tr><td>3</td>
+<td>451F8839050DB82A</td>
+<td>0D11C513050DB82A</td>
+<td>level545</td>
+</tr></tbody></table></div></div></div>  </div>
+<div id="node-87" class="section-4">
+  <h1 class="book-heading">已过时</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/logind6f4.html?destination=node/87%23comment-form">登录</a>或<a href="../../../user/registerd6f4.html?destination=node/87%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>在 Level 元素中有部分子元素/属性已经过时，这意味着它们曾经存在但是由于一些神奇的原因它们被删除了。Will Kirkby 通过推特询问到了它们的存在以及它们过去的含义。为了保持兼容性，这些空出的位置很可能在将来也不会被添加/替换成别的新功能。</p>
+</div></div></div>  </div>
+<div id="node-79" class="section-4">
+  <h1 class="book-heading">方块</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login7c34.html?destination=node/79%23comment-form">登录</a>或<a href="../../../user/register7c34.html?destination=node/79%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>在 EDGE 中总共有四种可以翻滚的方块：</p>
+<ol><li>玩家方块（也称彩虹方块，rainbow cube），即你操控的方块；<br /><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/rainbow-cube.png~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/rainbow-cube.png~original" /></a></li>
+<li><a href="../../../developers/file-formats/level-bin/Level/OtherCube.html">提示方块</a>（other cube / guide cube），在玩家方块碰到“?”方块的上方时出现，提示玩家如何过关的方块；<br /><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/other-cube.png~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/other-cube.png~original" /></a></li>
+<li><a href="../../../developers/file-formats/level-bin/Level/DarkCube.html">黑暗方块</a>（dark cube），在玩家方块走到特定位置时出现，提示玩家如何过关或阻碍玩家过关的方块。<br /><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/dark-cube.png~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/dark-cube.png~original" /></a></li>
+<li>幽灵方块（ghost cube），仅在Android/iOS版出现，无法被开发者控制。它在该关的所有<a href="../../../developers/file-formats/level-bin/Level/Prism.html">棱柱</a>吃完后出现，外观与PC版中的提示方块相同，它在关卡中的移动方式和你的最佳过关时间的移动方式相同，因此能为刷记录提供一定的帮助，不过有时候也很恼人，在options里可将ghost改为off来关闭显示。</li>
+</ol><p>去除最后一种完全不与关卡其他元素交互的方块，剩下三种方块与关卡其他元素交互的方式大致相同，但也有微小的区别。</p>
+<table><tr><td>交互类型</td>
+<td>玩家方块</td>
+<td>提示方块</td>
+<td>黑暗方块</td>
+</tr><tr><td>显示 EDGE 时间</td>
+<td>√</td>
+<td>×</td>
+<td>黑色</td>
+</tr><tr><td>被挤碎</td>
+<td>√</td>
+<td>挤碎时掉落</td>
+<td>挤碎时掉落</td>
+</tr><tr><td>到达终点过关</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr><tr><td>吃<a href="../../../developers/file-formats/level-bin/Level/Prism.html">棱柱</a></td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr><tr><td>按非 <a href="../../../developers/file-formats/level-bin/Level/Button.html">@Mode=Toggle 的按钮</a></td>
+<td>√</td>
+<td>×</td>
+<td>√</td>
+</tr><tr><td>压塌<a href="../../../developers/file-formats/level-bin/Level/FallingPlatform.html">可掉落平台</a></td>
+<td>√</td>
+<td>×</td>
+<td>√</td>
+</tr><tr><td>触发<a href="../../../developers/file-formats/level-bin/Level/CameraTrigger.html">相机触发器</a></td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr><tr><td>触发<a href="../../../developers/file-formats/level-bin/Level/Checkpoint.html">存档点</a></td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr><tr><td>保持向某方向滚动以加速</td>
+<td>速度有上限</td>
+<td>√</td>
+<td>√</td>
+</tr><tr><td>与关卡中其他元素交互</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr></table></div></div></div>  </div>
+<div id="node-12" class="section-4">
+  <h1 class="book-heading">测试关卡</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/logind781.html?destination=node/12%23comment-form">登录</a>或<a href="../../../user/registerd781.html?destination=node/12%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>edgemod 格式很适合玩家安装，不过如果你要用它测试关卡，那就像是在地狱中一样麻烦！<br />
+测试关卡时你没有必要做成一个 mod 再安装，你可以直接修改 levels/mapping.xml，在 bonus 或 extended 元素的结尾手动添加一个 level 元素，填写相应属性，再将你的新关放到合适的位置，然后启动游戏即可。<br />
+当你发现你的新关有任何地方需要改进，修改、重新编译后只需将其拖动到 levels 文件夹的对应位置即可！你甚至无需重启游戏，只需在关卡中 retry 即可测试新版本！但是这样做新版本的关卡ID、关卡名、等级时间、棱柱数量在游戏中不会更新。<br />
+请注意在你测试完关卡后应该将其删除，并撤销 mapping.xml 中的修改，否则可能会导致安装失败。<br />
+如果你的关卡已经编译成 edgemod 且希望修改，你可以安装这个 mod 后直接在 levels 文件夹中修改对应的 bin 文件并进行测试，修改完毕后将它压缩到你的 edgemod 中即可。</p>
+</div></div></div>  </div>
+<div id="node-201" class="section-4">
+  <h1 class="book-heading">移动版关卡</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login140b.html?destination=node/201%23comment-form">登录</a>或<a href="../../../user/register140b.html?destination=node/201%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>EDGE 的<a href="../../../developers/file-formats/level-bin.html">关卡文件</a>在移动版和 PC 版上基本没有什么区别，唯一的区别就是 <a href="../../../developers/file-formats/level-bin/Level.html">/Level/@TimeThresholds</a> 的单位。PC 版是以秒为单位，移动版是以厘秒 (0.01s) 为单位（除 iOS/安卓版 EDGE 的 bonus levels 外）。据 <a href="../../../users/wegfan.html">@WEGFan</a> 说在高级相机模式上还有一些区别。<br />
+使用 EdgeTool 工具箱中的转换手机版关卡文件工具可以方便地批量转换关卡。</p>
+</div></div></div>  </div>
+</div>
+    </div></div>  </body>
+
+<!-- Mirrored from edgefans.tk/book/export/html/17 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:12:12 GMT -->
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" xml:lang="zh-hans" dir="ltr">
+  
+<!-- Mirrored from edgefans.tk/book/export/html/94 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:25:40 GMT -->
+<head>
+    <title>关卡模型</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <base  />
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"abf52a451ec7c4c9a3d7ede279cc4b89",petok:"8e7daa5879e0403547cc434b74812385542a6978-1419674909-1800",zone:"edgefans.tk",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="../../../../ajax.cloudflare.com/cdn-cgi/nexp/dok2v%3d919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link type="text/css" rel="stylesheet" href="../../../misc/print.css" />
+      </head>
+  <body>
+              <div class="section-1">
+                <div class="section-2">
+                <div class="section-3">
+                <div class="section-4">
+              <div id="node-94" class="section-5">
+  <h1 class="book-heading">关卡模型</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login1aaa.html?destination=node/94%23comment-form">登录</a>或<a href="../../../user/register1aaa.html?destination=node/94%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>　　通常情况下，任意一个关卡都对应着一个 .eso 模型，里面存放着该关卡中墙壁与地面的外观，这就是所谓的关卡模型。通常情况下它有两个子模型，分别是<a href="../../../developers/file-formats/asset/eso/level-model/islands.html">关卡岛屿模型</a>与<a href="../../../developers/file-formats/asset/eso/level-model/stars.html">关卡星星模型</a>。<br />
+　　在忽略 Models 元素中各种变换的情况下，一个在关卡 .bin 文件中定义的方块位置 (x, y, z) 可以在模型中转换成一个 1x1x1（当然如果方块的 <a href="../../../developers/file-formats/level-bin/z.html">Z 坐标</a>为 0 则是 1x0.5x1）的正方体，它离原点最近的一点为 (x, z, y - 关卡长度)（如果方块的 Z 坐标为 0 则这一点是 (x, 0.5, y - 关卡长度)），离原点最远的一点为 (x + 1, z + 1, y - 关卡长度 + 1)。<br />
+　　在极早期的 EDGE 中由于关卡模型在 y=0 到 y=0.5 之间没有物体，因此整体的 y 坐标都上移了 0.5 来使最低的 y 坐标达到 1，不过后来又由于未知的原因（估计是因为觉得这么做太蠢了）而放弃了。如果你不幸的遇到了这样的模型，你可以将 <a href="../../../developers/file-formats/asset/eso/Models.html">Models</a>/@Translate 的 Y 坐标减去 0.5 来修复问题。<br />
+　　通常情况下一个方块最多有三个面，即上面、东面和南面，此时它的上方、东方、南方都没有方块，也就是没有被遮挡。其中上面的颜色除了由 Z 坐标确定以外，为了达到棋盘的效果还会深浅相间。当方块的 x + y 为偶数时上面是浅色，是奇数时为深色。而另外三个面由于在大多数时候不会被玩家看到因此没有必要制作。</p>
+</div></div></div>  <div id="node-95" class="section-6">
+  <h1 class="book-heading">winter 关卡模型</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/logina0ad.html?destination=node/95%23comment-form">登录</a>或<a href="../../../user/registera0ad.html?destination=node/95%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>winter 关卡模型与一般的关卡模型略有不同。它的根模型是一个空模型，下面有两个子模型：</p>
+<ol><li>第一个子模型就是一般的关卡模型；</li>
+<li>第二个子模型里是雪的模型，由于雪模型的材料没有使用纹理，因此在 EdgeTool 的<a href="../../../developers/file-formats/asset/drawing-model-tree.html">绘制模型树</a>功能中暂时只能用全白表示。</li>
+</ol></div></div></div>  </div>
+<div id="node-99" class="section-6">
+  <h1 class="book-heading">关卡岛屿模型</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login313a.html?destination=node/99%23comment-form">登录</a>或<a href="../../../user/register313a.html?destination=node/99%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>　　关卡岛屿模型是关卡模型的子模型中的第一个，顾名思义里面是一些在空中随机位置飘浮的岛屿。<br />
+　　研究表明尽管 level543 这个关卡并不存在，绘制模型树时却可以看到这一关的模型，但这一关的模型并不符合一般关卡模型的格式，而且有几个子模型与其他岛屿模型的外观相同，因此这一关很可能是用来生成那些岛屿模型的测试关卡。<br />
+　　通常情况下为了避免和关卡模型冲突，关卡岛屿模型中的内容都在 xOz 平面（y=0）以下，一个例外是在 voodoo dance 的临近终点处中有一个模型跑到了关卡模型上方。<br /><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/level-island-model.png~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/level-island-model.png~original" /></a></p>
+</div></div></div>  </div>
+<div id="node-100" class="section-6">
+  <h1 class="book-heading">关卡星星模型</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login84d5.html?destination=node/100%23comment-form">登录</a>或<a href="../../../user/register84d5.html?destination=node/100%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>　　关卡星星模型是关卡模型的子模型中的第二个，顾名思义里面是在空中随机位置飘浮的星星。<br />
+　　它们实际上是正方形，但由于在游戏中距离太远，玩家并不会意识到它是正方形。如果你在恰当的位置通过使用 <a href="../../../developers/file-formats/level-bin/Level/CameraTrigger.html">/Level/CameraTrigger</a>/@Angle=-1 开启平行投影，你可以看到这些正方形其实还是挺大的。<br />
+　　通常情况下为了避免和关卡模型冲突，关卡星星模型中的内容同样也都在 xOz 平面（y=0）以下。</p>
+</div></div></div>  </div>
+</div>
+    </div></div></div></div>  </body>
+
+<!-- Mirrored from edgefans.tk/book/export/html/94 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:25:40 GMT -->
+</html>

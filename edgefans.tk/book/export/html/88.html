@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" xml:lang="zh-hans" dir="ltr">
+  
+<!-- Mirrored from edgefans.tk/book/export/html/88 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 01:59:11 GMT -->
+<head>
+    <title>命令行参数</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <base  />
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"abf52a451ec7c4c9a3d7ede279cc4b89",petok:"bc6ff384a8b8aa527a20d570937f64965e45cd33-1419673005-1800",zone:"edgefans.tk",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="../../../../ajax.cloudflare.com/cdn-cgi/nexp/dok2v%3d919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link type="text/css" rel="stylesheet" href="../../../misc/print.css" />
+      </head>
+  <body>
+              <div class="section-1">
+                <div class="section-2">
+                <div class="section-3">
+              <div id="node-88" class="section-4">
+  <h1 class="book-heading">命令行参数</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login4590.html?destination=node/88%23comment-form">登录</a>或<a href="../../../user/register4590.html?destination=node/88%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>EdgeTool 可供使用的命令行参数有：</p>
+<table><tr><td>{.exe 文件}</td>
+<td>指定 EdgeTool 启动时加载的游戏文件，如果设置了 -forceClose 则此项不会更新设置，此项也会影响之后的 -lg 选项。</td>
+</tr><tr><td>{.edgemod 文件}</td>
+<td>指定 EdgeTool 启动时在当前游戏下加载的 EdgeMod 文件，如果设置了 -forceClose 则此项无效。</td>
+</tr><tr><td>{其他文件}</td>
+<td>指定 EdgeTool 要(反)编译的文件。</td>
+</tr><tr><td>-fst</td>
+<td>无论如何显示 EdgeTool 主窗口。</td>
+</tr><tr><td>-fc</td>
+<td>无论如何都在(反)编译结束之后结束程序。</td>
+</tr><tr><td>-new</td>
+<td>指定编译之后的 <a href="../../../developers/file-formats/asset/etx.html">.etx 纹理</a>文件时使用新版格式。</td>
+</tr><tr><td>-old</td>
+<td>指定编译之后的 .etx 纹理文件时使用旧版格式。</td>
+</tr><tr><td>-dir "{目录}"</td>
+<td>指定编译之后的文件时输出到指定目录。</td>
+</tr><tr><td>-dir ""</td>
+<td>指定编译之后的文件时输出到与该文件所在目录。（默认）</td>
+</tr><tr><td>-lg</td>
+<td>运行一次游戏。</td>
+</tr><tr><td>-c</td>
+<td>打开一次选择(反)编译文件的窗口。</td>
+</tr><tr><td>-rke</td>
+<td>打开一个录制 KeyEvent 的窗口。</td>
+</tr><tr><td>-cml</td>
+<td>打开一次转换手机版关卡文件的窗口。</td>
+</tr><tr><td>-c4u</td>
+<td>检查一次更新。</td>
+</tr></table><p>在 -forceStart 与 -forceClose 没有设置的情况下，如果有其他文件要(反)编译且没有设置任何 .exe 文件，也没有设置任何 .edgemod 文件，在(反)编译结束后 EdgeTool 会结束执行。<br />
+由于 EdgeTool 是 GUI 程序，在命令行下运行不会有任何输出，因此你需要使用随 EdgeTool 附赠的来自 <a href="http://goofans.com/download/utility/world-of-goo-console-debugger">World of Goo Console Debugger</a> 中的 Debug.exe，只需在所有的命令行参数后添加这一段即可：（无需空格）<code>|Debug</code></p>
+<h3>样例：把文件拖动到这里来(反)编译.bat</h3>
+<pre>@echo off
+cd "这里填写EdgeTool所在的目录"
+EdgeTool %1|Debug
+pause</pre><p>
+你可以使用这个功能与其他程序结合，如使用 Notepad++ 中的 NppExec 插件，在运行中输入：</p>
+<pre>"这里填写EdgeTool的路径" "$(CURRENT_DIRECTORY)\$(FILE_NAME)"</pre><p>然后就能按下 Ctrl+F6 来快速编译了，如下图所示。<br /><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/nppexec-demo.png~original" /></p>
+<h3>Resources/Library/unxwb.exe</h3>
+<p>此工具由 <a href="http://aluigi.altervista.org/papers.htm#xbox">Luigi Auriemma</a> 制作，全名 XWB/ZWB files unpacker 0.3.4（XWB/ZWB 文件解包器 0.3.4），用于<a href="../../../developers/file-formats/audio/compile-decompile-manually.html">手动处理 audio 文件夹</a>以进行较为复杂的操作。</p>
+</div></div></div>  </div>
+    </div></div></div>  </body>
+
+<!-- Mirrored from edgefans.tk/book/export/html/88 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 01:59:11 GMT -->
+</html>

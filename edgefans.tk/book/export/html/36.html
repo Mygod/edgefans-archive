@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" xml:lang="zh-hans" dir="ltr">
+  
+<!-- Mirrored from edgefans.tk/book/export/html/36 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:25:51 GMT -->
+<head>
+    <title>DarkCube 元素</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <base  />
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"abf52a451ec7c4c9a3d7ede279cc4b89",petok:"bceb1d4fbdf9fb4f917a4cebb35c0be58ccff615-1419674914-1800",zone:"edgefans.tk",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="../../../../ajax.cloudflare.com/cdn-cgi/nexp/dok2v%3d919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link type="text/css" rel="stylesheet" href="../../../misc/print.css" />
+      </head>
+  <body>
+              <div class="section-1">
+                <div class="section-2">
+                <div class="section-3">
+                <div class="section-4">
+              <div id="node-36" class="section-5">
+  <h1 class="book-heading">DarkCube 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login05bc.html?destination=node/36%23comment-form">登录</a>或<a href="../../../user/register05bc.html?destination=node/36%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded">说明：DarkCube（黑暗方块），表示一个提示你如何过关或阻碍你过关的方块。触发后离开触发点，黑暗方块也不会消失。<a href="../../../developers/file-formats/level-bin/cubes.html">它可以和关卡中的部分元素交互。</a><br />
+属性列表：
+<table><thead><tr><th class="nowrap">属性名</th>
+            <th class="nowrap">数据类型</th>
+            <th>备注</th>
+        </tr></thead><tbody><tr><td class="nowrap">PositionTrigger</td>
+            <td class="nowrap">三维坐标</td>
+            <td>必填。方块到达该位置时会激活黑暗方块。请注意黑暗方块只会被激活一次！</td>
+        </tr><tr><td class="nowrap">Radius</td>
+            <td class="nowrap">二维向量</td>
+            <td>可选，默认为0,0。使方块的坐标与触发点坐标之差的绝对值小于此值时也认为是到达了触发点。（换言之可以使触发点变成一个矩形）</td>
+        </tr><tr><td class="nowrap">MovingBlockSync</td>
+            <td class="nowrap">ID</td>
+            <td>可选。指定要与其同步的MovingPlatform的ID。</td>
+        </tr><tr><td class="nowrap">PositionCube</td>
+            <td class="nowrap">三维坐标</td>
+            <td>必填。指定黑暗方块的初始位置。</td>
+        </tr></tbody></table><pre title="样例" class="brush: xml">&lt;DarkCube PositionTrigger="17,19,1" Radius="1,0" PositionCube="17,9,1"&gt;
+  ...
+&lt;/DarkCube&gt;</pre>
+子元素列表：<a href="../../../developers/file-formats/level-bin/Level/OtherCube/key-event.html">按键事件元素</a></div></div></div>  </div>
+    </div></div></div></div>  </body>
+
+<!-- Mirrored from edgefans.tk/book/export/html/36 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:25:51 GMT -->
+</html>

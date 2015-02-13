@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" xml:lang="zh-hans" dir="ltr">
+  
+<!-- Mirrored from edgefans.tk/book/export/html/27 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:21:00 GMT -->
+<head>
+    <title>Checkpoint 元素</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <base  />
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"abf52a451ec7c4c9a3d7ede279cc4b89",petok:"583ac3594a1f90a6fc7d7f91bd0a262602b664c3-1419674309-1800",zone:"edgefans.tk",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="../../../../ajax.cloudflare.com/cdn-cgi/nexp/dok2v%3d919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link type="text/css" rel="stylesheet" href="../../../misc/print.css" />
+      </head>
+  <body>
+              <div class="section-1">
+                <div class="section-2">
+                <div class="section-3">
+                <div class="section-4">
+              <div id="node-27" class="section-5">
+  <h1 class="book-heading">Checkpoint 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login478d.html?destination=node/27%23comment-form">登录</a>或<a href="../../../user/register478d.html?destination=node/27%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：Checkpoint（存档点），若在方块经过这一点（或这一范围）后死亡（或在菜单中选择 last checkpoint），会恢复到这一点，并恢复到达这一点时的状态。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">Position</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。指定存档点的坐标。</td>
+</tr><tr><td class="nowrap">RespawnZ</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为0。指定恢复时方块的Z坐标。</td>
+</tr><tr><td class="nowrap">Radius</td>
+<td class="nowrap">二维向量</td>
+<td>可选，默认为0,0。使方块的坐标与存档点坐标之差的绝对值小于此值时也认为是到达了存档点。（换言之可以使存档点变成一个矩形）</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Checkpoint Position="6,22,1" RespawnZ="1" Radius="0,1" /&gt;</pre><p>注意：</p>
+<ul><li>在关卡中一旦排在后面的 Checkpoint 被激活后，在这个 Checkpoint 及之前的所有 Checkpoint 将不能被激活，因此顺序是非常重要的；</li>
+<li>Checkpoint 只有玩家方块停在该位置或从其他位置翻到这一位置（如 arksecktor 一关所示）才会被激活，在空中降落时无法激活任何 Checkpoint。</li>
+</ul></div></div></div>  </div>
+    </div></div></div></div>  </body>
+
+<!-- Mirrored from edgefans.tk/book/export/html/27 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:21:00 GMT -->
+</html>

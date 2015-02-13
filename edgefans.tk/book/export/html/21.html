@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" xml:lang="zh-hans" dir="ltr">
+  
+<!-- Mirrored from edgefans.tk/book/export/html/21 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:25:00 GMT -->
+<head>
+    <title>Bumper 元素</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <base  />
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"abf52a451ec7c4c9a3d7ede279cc4b89",petok:"191874c13e5b04d611f31fbf05423e351905c912-1419674858-1800",zone:"edgefans.tk",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="../../../../ajax.cloudflare.com/cdn-cgi/nexp/dok2v%3d919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link type="text/css" rel="stylesheet" href="../../../misc/print.css" />
+      </head>
+  <body>
+              <div class="section-1">
+                <div class="section-2">
+                <div class="section-3">
+                <div class="section-4">
+              <div id="node-21" class="section-5">
+  <h1 class="book-heading">Bumper 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/loginbf28.html?destination=node/21%23comment-form">登录</a>或<a href="../../../user/registerbf28.html?destination=node/21%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/bumper.png~original" /><br />
+说明：Bumper（撞击器），表示一个支持撞击的方块。请注意撞击器顶部的颜色永远都是浅色，而不是像模型中的静态方块那样深浅相间。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">ID</td>
+<td class="nowrap">ID</td>
+<td>可选。填写后可用于被@AffectBumpers引用。</td>
+</tr><tr><td class="nowrap">Enabled</td>
+<td class="nowrap">布尔型</td>
+<td>可选，默认为True。指定撞击器在关卡开始时是否被启用。</td>
+</tr><tr><td class="nowrap">Position</td>
+<td class="nowrap">三维坐标</td>
+<td>必填。指定撞击器的位置。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Bumper Position="11,4,0"&gt;
+  ...
+&lt;/Bumper&gt;</pre><p>子元素列表：<br />
+North &amp; East &amp; South &amp; West 元素 各 0～1 个</p>
+</div></div></div>  <div id="node-23" class="section-6">
+  <h1 class="book-heading">North &amp; East &amp; South &amp; West 元素</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/logina736.html?destination=node/23%23comment-form">登录</a>或<a href="../../../user/registera736.html?destination=node/23%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：撞击方向元素指定撞击器在该方向撞击的动作。省略该元素表示在该方向上不撞击。<br />
+属性列表：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">StartDelay</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为0。表示从关卡开始到第一次撞击之间的帧（1/22秒）数。若为-1表示不撞击。</td>
+</tr><tr><td class="nowrap">PulseRate</td>
+<td class="nowrap">16位整数</td>
+<td>可选，默认为0。表示两次撞击之间间隔的帧（1/22秒）数。若为-1表示不撞击。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;South PulseRate="30" /&gt;</pre></div></div></div>  </div>
+</div>
+    </div></div></div></div>  </body>
+
+<!-- Mirrored from edgefans.tk/book/export/html/21 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:25:00 GMT -->
+</html>

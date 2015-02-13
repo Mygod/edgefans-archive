@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" xml:lang="zh-hans" dir="ltr">
+  
+<!-- Mirrored from edgefans.tk/book/export/html/206 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:12:03 GMT -->
+<head>
+    <title>.xml 项目</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <base  />
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"abf52a451ec7c4c9a3d7ede279cc4b89",petok:"1949f8d1b5821303d55595c780b28cbb9848277a-1419673909-1800",zone:"edgefans.tk",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="../../../../ajax.cloudflare.com/cdn-cgi/nexp/dok2v%3d919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link type="text/css" rel="stylesheet" href="../../../misc/print.css" />
+      </head>
+  <body>
+              <div class="section-1">
+                <div class="section-2">
+                <div class="section-3">
+                <div class="section-4">
+              <div id="node-206" class="section-5">
+  <h1 class="book-heading">.xml 项目</h1>
+  <div class="form-item form-type-item">
+  <label>语言 </label>
+ Chinese, Simplified
+</div>
+<ul class="links inline"><li class="comment_forbidden first last"><span><a href="../../../user/login2738.html?destination=node/206%23comment-form">登录</a>或<a href="../../../user/register2738.html?destination=node/206%23comment-form">注册</a>后发表评论</span></li>
+</ul><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>编译手机版的项目文件扩展名 .xml，它是一个标准的 XML 文件，存放了项目的若干配置信息。<br />
+其根元素为 project 元素，其属性如下：</p>
+<table><thead><tr><th class="nowrap">属性名</th>
+<th class="nowrap">数据类型</th>
+<th>备注</th>
+</tr></thead><tbody><tr><td class="nowrap">preset</td>
+<td class="nowrap">特殊</td>
+<td>可选，默认为 android。表示项目使用的预设配置，android 表示安卓版，ios 表示 iOS 版。</td>
+</tr><tr><td class="nowrap">keep</td>
+<td class="nowrap">正则表达式</td>
+<td>可选。表示哪些文件要保持原状不作修改。（被匹配的文本是原文件的文件名）不填表示修改全部支持顶的文件。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;project preset="ios" keep="." /&gt;</pre><p>
+project 元素有两个可选的子元素为 levelpackA 和 levelpackB，每个子元素分别可以包括最多 48 与 17 个 <a href="../../../developers/file-formats/mapping-xml/level.html">level 元素</a>，每个元素定义了一个关卡，超过个数限制的元素将被忽略。<br />
+这些 level 元素与一般 mapping.xml 里的 level 元素有一点小区别：</p>
+<ul><li>被省略的 level 元素（即不满限制的情况下的最后几关）或被省略的 @filename 将会被一个 PLACEHOLDER 关代替，这关可以瞬间过关来保证玩家可以完成游戏；</li>
+<li>@leaderboard_id 不会起任何作用，将会被忽略。</li>
+</ul></div></div></div>  </div>
+    </div></div></div></div>  </body>
+
+<!-- Mirrored from edgefans.tk/book/export/html/206 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2014 02:12:03 GMT -->
+</html>

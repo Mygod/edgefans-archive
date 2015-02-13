@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="http://edgefans.tk"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+ <title>EDGE Fans - Music</title>
+ <link>http://edgefans.tk/tags/theme/music</link>
+ <description>修改游戏中的音乐。
+</description>
+ <language>zh-hans</language>
+<item>
+ <title>EDGE Soundtrack</title>
+ <link>http://edgefans.tk/mods/mygod/edge-soundtrack</link>
+ <description>&lt;div class=&quot;form-item form-type-item&quot;&gt;
+  &lt;label&gt;语言 &lt;/label&gt;
+ Chinese, Simplified
+&lt;/div&gt;
+&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;p&gt;&lt;img src=&quot;http://f0.bcbits.com/img/a1250913755_10.jpg&quot; /&gt;&lt;br /&gt;
+使用 500KBps 的高清音质完美提升你的游戏体验！&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-field-downloads field-type-file field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;table class=&quot;sticky-enabled&quot;&gt;
+ &lt;thead&gt;&lt;tr&gt;&lt;th&gt;附件&lt;/th&gt;&lt;th&gt;尺寸&lt;/th&gt; &lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td&gt;&lt;span class=&quot;file&quot;&gt;&lt;img class=&quot;file-icon&quot; alt=&quot;&quot; title=&quot;application/octet-stream&quot; src=&quot;/modules/file/icons/application-octet-stream.png&quot; /&gt; &lt;a href=&quot;http://edgefans.tk/sites/default/files/mods/EDGE.Soundtrack.edgemod&quot; type=&quot;application/octet-stream; length=473&quot;&gt;EDGE.Soundtrack.edgemod&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;473 字节&lt;/td&gt; &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-field-rating field-type-fivestar field-label-above&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Rating:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;div class=&quot;clearfix fivestar-average-stars fivestar-average-text&quot;&gt;&lt;div class=&quot;fivestar-static-item&quot;&gt;&lt;div class=&quot;form-item form-type-item&quot;&gt;
+ &lt;div class=&quot;fivestar-default&quot;&gt;&lt;div class=&quot;fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix&quot;&gt;&lt;div class=&quot;star star-1 star-odd star-first&quot;&gt;&lt;span class=&quot;on&quot;&gt;5&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;star star-2 star-even&quot;&gt;&lt;span class=&quot;on&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;star star-3 star-odd&quot;&gt;&lt;span class=&quot;on&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;star star-4 star-even&quot;&gt;&lt;span class=&quot;on&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;star star-5 star-odd star-last&quot;&gt;&lt;span class=&quot;on&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;description&quot;&gt;&lt;div class=&quot;fivestar-summary fivestar-summary-average-count&quot;&gt;&lt;span class=&quot;average-rating&quot;&gt;Average: &lt;span &gt;5&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;total-votes&quot;&gt;(&lt;span &gt;2&lt;/span&gt; votes)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-field-tags field-type-taxonomy-term-reference field-label-above clearfix&quot;&gt;&lt;h3 class=&quot;field-label&quot;&gt;Tags: &lt;/h3&gt;&lt;ul class=&quot;links&quot;&gt;&lt;li class=&quot;taxonomy-term-reference-0&quot;&gt;&lt;a href=&quot;/tags/theme&quot; typeof=&quot;skos:Concept&quot; property=&quot;rdfs:label skos:prefLabel&quot; datatype=&quot;&quot;&gt;Theme&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;taxonomy-term-reference-1&quot;&gt;&lt;a href=&quot;/tags/theme/music&quot; typeof=&quot;skos:Concept&quot; property=&quot;rdfs:label skos:prefLabel&quot; datatype=&quot;&quot;&gt;Music&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description>
+ <pubDate>Wed, 24 Jul 2013 00:32:45 +0000</pubDate>
+ <dc:creator>Mygod</dc:creator>
+ <guid isPermaLink="false">82 at http://edgefans.tk</guid>
+ <comments>http://edgefans.tk/mods/mygod/edge-soundtrack#comments</comments>
+</item>
+</channel>
+</rss>
