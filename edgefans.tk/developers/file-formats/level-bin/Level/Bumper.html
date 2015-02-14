@@ -263,7 +263,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <td>可选，默认为True。指定撞击器在关卡开始时是否被启用。</td>
 </tr><tr><td class="nowrap">Position</td>
 <td class="nowrap">三维坐标</td>
-<td>必填。指定撞击器的位置。</td>
+<td>必填。指定撞击器的位置。请注意当撞击器的 Z 坐标 = 0 且 X,Y 坐标 ≤ 0 时会在撞击器旁边多出一些小方块，当玩家以小方块形式站在多出来的小方块上时将不会掉落。</td>
 </tr></tbody></table><pre title="样例" class="brush: xml">&lt;Bumper Position="11,4,0"&gt;
   ...
 &lt;/Bumper&gt;</pre><p>子元素列表：<br />
