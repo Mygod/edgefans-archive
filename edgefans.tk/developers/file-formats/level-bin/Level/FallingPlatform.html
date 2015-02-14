@@ -252,6 +252,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </div>
 <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：FallingPlatform（可掉落平台），表示一个受到方块压过后在一段时间后就会消失的方块，其外观为一块会掉落的瓷砖。请注意：</p>
 <ol><li>可掉落平台有腐蚀一切静态方块包括终点在内（除 <a href="Bumper.html">Bumper</a> 外）的功能！</li>
+<li>当玩家方块站在与 <a href="resizer.html">方块放大/缩小器</a> 重合的可掉落平台上时将使方块放大/缩小，使用 last checkpoint 或死亡后站上去可掉落平台将掉落。</li>
 <li>当可掉落平台的 Z 坐标 ∈ (0,高度] 且 (X 坐标 ∈ [0,宽度] 且 Y 坐标 = 长度 或 X 坐标 = 宽度 且 Y 坐标 ∈ [0,长度]) 时可掉落平台虽然可见但是可以被玩家方块穿透。</li>
 <li>当玩家方块站在一块 Z 坐标 ≤ 0 的可掉落平台上时将无法向上翻滚/EDGE！</li>
 </ol><p>属性列表：</p>
