@@ -257,7 +257,25 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </tr></thead><tbody><tr><td class="nowrap">TimeOffset</td>
 <td class="nowrap">16位自然数</td>
 <td>可选，默认为0。表示从方块被触发到按键间隔的帧（1/22秒）数。</td>
-</tr></tbody></table><pre title="样例" class="brush: xml">&lt;WestDown TimeOffset="14" /&gt;</pre></div></div></div>  <div id="book-navigation-7" class="book-navigation">
+</tr></tbody></table>
+<p>附方块在同一高度上移动距离与所用帧（1/22秒）数列表（会有一点点误差，建议在按键放开后增加延时来减小误差）：</p>
+<table><thead><tr><th>移动距离（格）</th>
+<th>所用帧（1/22秒）数</th>
+<th>移动距离（格）</th>
+<th>所用帧（1/22秒）数</th>
+</tr></thead><tbody>
+<tr><td>1</td><td>8</td><td>11</td><td>81</td></tr>
+<tr><td>2</td><td>16</td><td>12</td><td>87</td></tr>
+<tr><td>3</td><td>24</td><td>13</td><td>93</td></tr>
+<tr><td>4</td><td>32</td><td>14</td><td>99</td></tr>
+<tr><td>5</td><td>39</td><td>15</td><td>105</td></tr>
+<tr><td>6</td><td>46</td><td>16</td><td>111</td></tr>
+<tr><td>7</td><td>53</td><td>17</td><td>117</td></tr>
+<tr><td>8</td><td>60</td><td>18</td><td>123</td></tr>
+<tr><td>9</td><td>67</td><td>19</td><td>129</td></tr>
+<tr><td>10</td><td>74</td><td>20</td><td>135</td></tr>
+</tbody></table>
+<pre title="样例" class="brush: xml">&lt;WestDown TimeOffset="14" /&gt;</pre></div></div></div>  <div id="book-navigation-7" class="book-navigation">
     
         <div class="page-links clearfix">
               <a href="../OtherCube.html" class="page-previous" title="返回上一个页面">‹ OtherCube 元素</a>
