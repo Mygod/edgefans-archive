@@ -234,7 +234,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 游戏用来计算余弦值的文件。其格式可在这里找到：<a href="http://will.kirk.by/labs/tt/edge/cos.bin">http://will.kirk.by/labs/tt/edge/cos.bin</a><br />
 EdgeTool 反编译这个文件可以得到 cos.txt。这是一个有 181 行的文件，第 i 行中写的是 cos(i-1) 的值。<br />
 每个值精确到 1/256，即 0.00390625。你不能填写正负无穷大，因为每一行的数字都必须有取值范围：[-128,127.99609375]，即 [ -128,128 )<br />
-如果删除这个文件，在游戏中玩家将不能通过倾斜方块来吃 prism 。<br />
+如果删除这个文件，在游戏中玩家将不能通过倾斜方块来吃棱柱。<br />
 P.S. 虽然在通常情况下余弦的值域是[-1,1]，但是很幸运我们可以使用一些更加大的值来实现一些神奇的功能。</p>
 <p>标准 cos.txt：</p>
 <pre class="brush: xml">1
