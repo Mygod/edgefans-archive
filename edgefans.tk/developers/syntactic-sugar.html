@@ -227,7 +227,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 坏处：基本没有。（相对于手动实现而言）<br />
 注意点：使用过多，数字过大可能会导致编译出来的文件变得巨大，甚至导致游戏运行速度下降；由于编译后格式并不支持这些语法糖，因此一旦编译这些信息就会全部丢失，反编译后你得到的 XML 将与手动实现无异。</p>
 <p>目前可以使用的语法糖：</p>
-<ul><li><a href="file-formats/level-bin/Level/StaticMovingPlatforms.html">/Level/StaticMovingPlatforms</a></li>
+<ul>
 <li><a href="file-formats/level-bin/Level/MovingPlatform.html">/Level/MovingPlatform</a> 的 @RelatedTo, @Offset</li>
 <li><a href="file-formats/level-bin/Level/OtherCube.html">/Level/OtherCube</a> 的 @Radius, @Mode, @MoveDirection</li>
 <li><a href="file-formats/level-bin/Level/resizer.html">/Level/ResizerGrow 和 /Level/ResizerShrink</a> 的 @Radius</li>
