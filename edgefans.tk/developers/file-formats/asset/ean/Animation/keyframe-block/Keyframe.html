@@ -239,7 +239,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <label>语言 </label>
  Chinese, Simplified
 </div>
-<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：Keyframe（关键帧），表示在某一特定时刻当前物体当前属性的值，关键帧与关键帧之间将使用线性插值平滑过渡。<br />
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：Keyframe（关键帧），表示在某一特定时刻当前物体当前属性的值，关键帧与关键帧之间将使用一个二次函数插值平滑过渡。<br />
 属性列表：</p>
 <table><thead><tr><th class="nowrap">属性名</th>
 <th class="nowrap">数据类型</th>
@@ -250,10 +250,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </tr><tr><td class="nowrap">Value</td>
 <td class="nowrap">32位浮点数</td>
 <td>可选，在 Rotate 和 Translate 中默认为 0，在 Scale 中默认为 1。指定这一时刻的值。</td>
-</tr><tr><td class="nowrap">Delta</td>
+</tr><tr><td class="nowrap">Velocity</td>
 <td class="nowrap">32位浮点数</td>
-<td>可选，默认为 0。指定Δ。</td>
-</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Keyframe Time="6" Value="-89.9999888440998" Delta="19.9999977106385" /&gt;</pre></div></div></div>  <div id="book-navigation-7" class="book-navigation">
+<td>可选，默认为 0。指定在当前关键帧时的瞬时速度。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Keyframe Time="6" Value="-89.9999888440998" Velocity="19.9999977106385" /&gt;</pre></div></div></div>  <div id="book-navigation-7" class="book-navigation">
     
         <div class="page-links clearfix">
               <a href="../keyframe-block.html" class="page-previous" title="返回上一个页面">‹ 关键帧块元素</a>
