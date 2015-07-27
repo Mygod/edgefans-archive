@@ -258,7 +258,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <td>必填。指定“?”显示的坐标位置，方块到达该位置时会激活提示方块。请注意提示方块可以激活多次！</td>
 </tr><tr><td class="nowrap">MovingBlockSync</td>
 <td class="nowrap">ID</td>
-<td>可选。指定要与其同步的MovingPlatform的ID。</td>
+<td>可选。指定要与其同步的MovingPlatform的ID，提示方块将在被同步的MovingPlatform移动到第一个路点时开始移动。</td>
 </tr><tr><td class="nowrap">PositionCube</td>
 <td class="nowrap">三维坐标</td>
 <td>必填。指定提示方块的初始位置。</td>
@@ -274,7 +274,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </tr></tbody></table><pre title="样例" class="brush: xml">&lt;OtherCube PositionTrigger="70,27,1" MovingBlockSync="Block29"
            PositionCube="69,25,1"&gt;
   ...
-&lt;/OtherCube&gt;</pre><p>子元素列表：<br /><a href="MovingPlatform.html">MovingPlatform 元素</a>（仅在非AutoHide模式下可用，@AutoStart与@Looped的默认值为False，在没有子元素的情况下会有两个路点，即从@PositionTrigger开始向@MoveDirection移动，@TravelTime在MoveAway模式下为32000，在Hole模式下为1）<br /><a href="Button.html">Button 元素</a>（仅在非AutoHide模式下可用，@Position默认值为@PositionTrigger，@Visible默认值为False，@AffectMovingPlatforms会自动添加与其对应的MovingPlatform）<br />
+&lt;/OtherCube&gt;</pre><p>子元素列表：<br /><a href="MovingPlatform.html">MovingPlatform 元素</a>（仅在非AutoHide模式下可用，@AutoStart的默认值为False，@LoopStartIndex的默认值为0，在没有子元素的情况下会有两个路点，即从@PositionTrigger开始向@MoveDirection移动，@TravelTime在MoveAway模式下为32000，在Hole模式下为1）<br /><a href="Button.html">Button 元素</a>（仅在非AutoHide模式下可用，@Position默认值为@PositionTrigger，@Visible默认值为False，@AffectMovingPlatforms会自动添加与其对应的MovingPlatform）<br />
 按键事件元素</p>
 </div></div></div>  <div id="book-navigation-7" class="book-navigation">
     <ul class="menu clearfix"><li class="first last leaf"><a href="OtherCube/key-event.html">按键事件元素</a></li>
