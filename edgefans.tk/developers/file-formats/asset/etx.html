@@ -239,15 +239,14 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </div>
 <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>.etx 纹理文件存放在 textures 文件夹中。它存放了游戏中要使用的纹理，它们实际上就是图像。如果游戏在 textures 文件夹下没有找到对应的文件，就会显示 default/CBB649F112744E56.etx (default.img.png)，它看起来是像这个样子：<br /><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/defaultimg.png~original" /><br />
 其原来文件名的扩展名为 .img，使用 EdgeTool 反编译时实际输出为 .png 图像。<br />
+出处：<a href="http://will.kirk.by/labs/tt/ttdev/etx">http://will.kirk.by/labs/tt/ttdev/etx</a><br />
 命名空间：<code>textures</code>（仅对于 textures 文件夹下的 .etx 文件而言，在极早期的版本中的命名空间为 <code>models.textures</code>）<br />
 EDGE 的版本不同，.etx 的格式也不同，大致可以分为下面两种。</p>
 <h3>早期版本</h3>
-<p>C# 实现：<a href="https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/ETX1803.cs">https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/ETX1...</a><br />
-引擎版本：<code>0x00XX000000000003</code><br />
+<p>引擎版本：<code>0x00XX000000000003</code><br />
 去掉资源文件头后下面就是一个 PNG 图像，也就是说去掉文件头后这个文件与 .png 文件无异。</p>
 <h3>新版</h3>
-<p>C# 实现：<a href="https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/ETX1804.cs">https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/ETX1...</a><br />
-引擎版本：<code>0x0018000000000004</code><br /><code>0x88-0x89</code>: 指定图像宽度。<br /><code>0x8A-0x8B</code>: 指定图像高度。<br /><code>0x8C-0x8F</code>: 不明，似乎永远为 <code>0x00000002</code>。<br /><code>0x90-0x93</code>: 下面位图数据的长度。<br /><code>0x94-</code>: 位图数据，以 BGRA32 格式存储。</p>
+<p>引擎版本：<code>0x0018000000000004</code><br /><code>0x88-0x89</code>: 指定图像宽度。<br /><code>0x8A-0x8B</code>: 指定图像高度。<br /><code>0x8C-0x8F</code>: 不明，似乎永远为 <code>0x00000002</code>。<br /><code>0x90-0x93</code>: 下面位图数据的长度。<br /><code>0x94-</code>: 位图数据，以 BGRA32 格式存储。</p>
 </div></div></div>  <div id="book-navigation-7" class="book-navigation">
     
         <div class="page-links clearfix">

@@ -231,7 +231,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
  Chinese, Simplified
 </div>
 <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>在 localization 文件夹内只有一个文件，那就是 text.loc，该文件允许你修改或翻译游戏中的文本。<br />
-Will Kirkby提供了该文件的格式并实现了一个读写 .loc 文件的类：<a href="https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/LOC.cs">https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/LOC.cs</a><br />
+Will Kirkby 提供了该文件的格式并实现了一个读写 .loc 文件的类：<a href="http://will.kirk.by/labs/tt/ttdev/loc">http://will.kirk.by/labs/tt/ttdev/loc</a><br />
 对于开发者，你同样可以用 EdgeTool 反编译、编译该文件来修改该文件。反编译后你会得到一个 text.xls 文件，这是一个标准的 Microsoft Excel 97-2003 工作表，你需要安装Microsoft Excel 97 或更高版本来打开这个文件。打开后如下图所示。<br /><img src="../../../i.imgur.com/P9sCnL9.png" /><br />
 第一行是列头，其中第一列固定不变为id，后面几列分别为对应的语言ID。<br />
 下面每一行，第一列代表这一行文本的ID，请不要改动，后面几列分别为对应语言ID对应的文本。<br />

@@ -238,11 +238,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>EDGE 游戏中有许多资源文件，里面存放了各种各样奇怪的东西。<br />
 大部分资源文件都有固定且相同的文件头与命名方式。</p>
 <h3>文件头</h3>
-<p>出处：<a href="https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/AssetHeader.cs">https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/Asse...</a><br /><code>0x00-0x07</code>: 指定引擎版本，不过游戏通常不会识别。在 EDGE 中通常使用 <code>0x0018000000000004</code>（在部分较新版本中）或 <code>0x00XX000000000003</code>（XX表示任意位）。<br /><code>0x08-0x47</code>: 一串文本，指定了当前文件原来的文件名。<br /><code>0x48-0x87</code>: 一串文本，指定了当前文件的命名空间，通常与它所在的目录名相同。</p>
+<p>出处：<a href="http://will.kirk.by/labs/tt/ttdev/misc">http://will.kirk.by/labs/tt/ttdev/misc</a><br /><code>0x00-0x07</code>: 指定引擎版本，不过游戏通常不会识别。在 EDGE 中通常使用 <code>0x0018000000000004</code>（在部分较新版本中）或 <code>0x00XX000000000003</code>（XX表示任意位）。<br /><code>0x08-0x47</code>: 一串文本，指定了当前文件原来的文件名。<br /><code>0x48-0x87</code>: 一串文本，指定了当前文件的命名空间，通常与它所在的目录名相同。</p>
 <h3>命名方式</h3>
-<p>出处：<a href="https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/AssetHeader.cs">https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/Asse...</a><br />
+<p>出处：<a href="http://will.kirk.by/labs/tt/ttdev/misc">http://will.kirk.by/labs/tt/ttdev/misc</a><br />
 文件名由三部分组成，第一部分为去掉扩展名后反转过的文件名的哈希值的十六进制表示（材料、非根模型与非根动画除外），第二部分为反转后的命名空间哈希值的十六进制表示，第三部分为扩展名，表示文件的类型。<br />
-哈希算法是使用了可以自定义多项式系数（大概是这么叫法）的 CRC32，其 C# 实现：<a href="https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/Util/CRC32.cs">https://github.com/WillKirkby/LibTwoTribes/blob/master/LibTwoTribes/Util...</a><br />
+哈希算法是使用了可以自定义多项式系数（大概是这么叫法）的 CRC32，其 C# 实现：<a href="https://github.com/Mygod/EDGE/blob/master/EdgeTool/Core/LibTwoTribes/Util/CRC32.cs">CRC32.cs</a><br />
 哈希文件名时使用的多项式系数为标准算法所使用的 <code>0xEDB88320</code>，哈希命名空间时的多项式系数为前面的系数取反，即 <code>0x12477CDF</code>。<br />
 命名空间可以是以下值之一：（主要取决于你放的文件夹名）</p>
 <pre>audio
