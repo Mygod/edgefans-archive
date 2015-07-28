@@ -24,7 +24,7 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 //]]>
 </script>
 <link rel="shortcut icon" href="../../../../favicon.ico" type="image/vnd.microsoft.icon" />
-<link rel="next" href="Char/Rect.html" />
+<link rel="next" href="../../mapping-xml.html" />
 <link rel="prev" href="../Font.html" />
 <meta name="Generator" content="Drupal 7 (http://drupal.org)" />
 <link rel="canonical" href="Char.html" />
@@ -142,8 +142,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <li class="collapsed"><a href="../../binary-json.html">Binary JSON</a></li>
 <li class="collapsed"><a href="../../audio.html">audio 文件夹</a></li>
 <li class="leaf"><a href="../../cos-bin.html">cos.bin</a></li>
-<li class="expanded active-trail"><a href="../../font-bin.html" class="active-trail">font.bin</a><ul class="menu clearfix"><li class="first last expanded active-trail"><a href="../Font.html" class="active-trail">Font 元素</a><ul class="menu clearfix"><li class="first last expanded active-trail"><a href="Char.html" class="active-trail active">Char 元素</a><ul class="menu clearfix"><li class="first last leaf"><a href="Char/Rect.html">Rect 元素</a></li>
-</ul></li>
+<li class="expanded active-trail"><a href="../../font-bin.html" class="active-trail">font.bin</a><ul class="menu clearfix"><li class="first last expanded active-trail"><a href="../Font.html" class="active-trail">Font 元素</a><ul class="menu clearfix"><li class="first last leaf active-trail"><a href="Char.html" class="active-trail active">Char 元素</a></li>
 </ul></li>
 </ul></li>
 <li class="collapsed"><a href="../../mapping-xml.html">mapping.xml</a></li>
@@ -240,20 +239,16 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <th>备注</th>
 </tr></thead><tbody><tr><td class="nowrap">Character</td>
 <td class="nowrap">字符</td>
-<td>可选。表示一个字符。通常情况下你只能填写 <code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%１２３４５６７８９,.?!:'()_-=+@/"çβāäēëīíōöūü&gt;&lt;[]ñ¡À$ÉȇÜ|şğÇĕčřýňšžŮďĎŐȁÚâćęźɫąśńżŚ</code> 中的一个。如果你没有填写或填写的字符不在上面的范围内，这些字符会被放在标准文件字体的末尾（我也不知道结果会怎么样）。如果你没有填写上面某个字符中的任意一个或几个，它们会使用宽度为 1 的空白字符。</td>
+<td>可选，默认为 \0。表示一个字符。通常情况下你只能填写 <code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%１２３４５６７８９,.？!：'()_-=+@／＂çβāäēëīíōöūü＞＜[]ñ¡À$ÉȇÜ｜şğÇĕčřýňšžŮďĎŐȁÚâćęźɫąśńżŚ</code> 中的一个，但如果你不打算指定一个特殊的 @Width 的话整个元素可以完全省略。如果你没有填写或填写的字符不在上面的范围内，这些多余的字符会按输入顺序被放在标准文件字体的末尾。实际上在这种情况下你填写什么并不重要，因为游戏会使用什么字符和此项无关，因此如果想要尝试新字只要随便填一个没有的就可以了，我也不知道结果会怎么样。</td>
 </tr><tr><td class="nowrap">Width</td>
 <td class="nowrap">8位自然数</td>
-<td>可选，默认为0。表示这个字符的宽度。</td>
-</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Char Character="A" Width="7"&gt;
-  ...
-&lt;/Char&gt;</pre><p>子元素列表：Rect 元素</p>
+<td>可选，默认为对应字体图像的宽度，若对应图像不存在则默认为 0。表示这个字符的宽度，你可以借此属性修改字体图像的宽度。</td>
+</tr></tbody></table><pre title="样例" class="brush: xml">&lt;Char Character="A" Width="7" /&gt;</pre>
 </div></div></div>  <div id="book-navigation-7" class="book-navigation">
-    <ul class="menu clearfix"><li class="first last leaf"><a href="Char/Rect.html">Rect 元素</a></li>
-</ul>
         <div class="page-links clearfix">
               <a href="../Font.html" class="page-previous" title="返回上一个页面">‹ Font 元素</a>
                     <a href="../Font.html" class="page-up" title="回到上层页面">向上</a>
-                    <a href="Char/Rect.html" class="page-next" title="去下一个页面">Rect 元素 ›</a>
+                    <a href="../../mapping-xml.html" class="page-next" title="去下一个页面">mapping.xml ›</a>
           </div>
     
   </div>
