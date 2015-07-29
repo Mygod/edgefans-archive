@@ -260,7 +260,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <td>必填。关卡的标识符。若相同ID的关卡同时安装在游戏中，则只会显示前一个。为了避免冲突，请至少使用五位数作为关卡 ID，并使用一个随机生成的前缀。</td>
 </tr><tr><td class="nowrap">Name</td>
 <td class="nowrap">文本</td>
-<td>必填。关卡名。</td>
+<td>必填。关卡名。使用 <code>&amp;#xD;&amp;#xA;</code> 可换行。</td>
 </tr><tr><td class="nowrap">TimeThresholds</td>
 <td class="nowrap">16位自然数列表</td>
 <td>必填。由 5 个数字组成，分别表示达到 S+、S、A、B、C 所需的秒数，<a href="mobile-levels.html">请注意这里手机版比较特殊</a>，因此建议将时间设置在 655 秒内。达到 S+、S、A、B、C 所需的时间必须严格递增，否则将无法获得部分评级。</td>
@@ -275,7 +275,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <td>必填。终点坐标。如果 X 坐标 ∉ [0,宽度) 或 Y 坐标 ∉ [0,长度) 或 Z 坐标 ∉ (0,高度] 会导致游戏崩溃。</td>
 </tr><tr><td class="nowrap">Theme</td>
 <td class="nowrap">8位自然数</td>
-<td>可选，默认为0。指定关卡内部方块的外观主题。如果大于3则会在游戏中变成0。0为白色主题，1为浅灰色主题，2为深灰色主题，3为黑色主题。只有白色主题的背景会有一闪一闪的星星。（可以通过 models 添加不会闪烁的星星）请注意设置主题并不影响那些在 models 中的静态方块的外观。如果想要修改请使用 GenerateModel 元素。</td>
+<td>可选，默认为0。指定关卡内部方块的外观主题。如果大于3则会在游戏中变成0。0为白色主题，1为浅灰色主题，2为深灰色主题，3为黑色主题。只有白色主题的背景会有一闪一闪的星星。（可以通过 models 添加不会闪烁的星星）请注意设置主题并不影响那些在 models 中的静态方块的外观。如果想要修改请查看 <a href="map.html">关卡地图</a>。</td>
 </tr><tr><td class="nowrap">MusicJava</td>
 <td class="nowrap">8位自然数</td>
 <td>可选，默认为0。在Java版上播放音乐的索引。如果大于11则会在游戏中变为0。<a href="http://pan.baidu.com/share/link?shareid=3923516135&amp;uk=3104462449">音乐列表</a>（前面的数字为代号）：<a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/CKUhyOkWUU4.html">00_menus</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/ivXGtytALk0.html">01_braintonik</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/vHIzcr_M6i8.html">02_cube_dance</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/KIUaVVZZr98.html">03_essai_2</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/9bTVIQLw3Io.html">04_essai_01</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/2bUmAb8aOH4.html">05_test</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/RJDweVAP3vM.html">06_mysterycube</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/rYl-kdBRKPY.html">07_03_EDGE</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/y5FsTT58QR8.html">08_jungle</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/tbyMU2hAQ6A.html">09_RetardTonic</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/3KH5E5tFHXc.html">10_oldschool_simon</a>, <a href="http://www.tudou.com/listplay/iZ5TCo0ERjc/XwPMtT1Amdk.html">11_planant</a></td>
