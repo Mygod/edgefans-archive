@@ -249,7 +249,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <label>语言 </label>
  Chinese, Simplified
 </div>
-<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：OtherCube（提示方块），表示一个提示你如何过关的方块。触发后离开触发点，提示方块就会消失。<a href="../cubes.html">它可以和关卡中的部分元素交互。</a></p>
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>说明：OtherCube（提示方块），表示一个提示你如何过关的方块。触发后离开触发点或暂停游戏，提示方块就会消失。<a href="../cubes.html">它可以和关卡中的部分元素交互。</a></p>
 <table><thead><tr><th class="nowrap">属性名</th>
 <th class="nowrap">数据类型</th>
 <th>备注</th>
@@ -269,7 +269,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <td class="nowrap">特殊</td>
 <td>可选，默认为AutoHide。<a href="../../../syntactic-sugar.html">语法糖</a>。填写MoveAway后被触发的位置下方的方块会开始变色。（<a href="http://www.tudou.com/programs/view/QUHjSYtGDZ8/">wire的视频演示</a>）填写Hole后被触发位置下方会变得什么都没有，下落到洞中后会自动瞬移到洞口并不再下落。（<a href="http://www.tudou.com/programs/view/96D37ut4YVM/">furious bot的视频演示</a>）选择AutoHide后离开该方块时提示方块会消失，否则不会消失。MoveAway只能生效一次，之后会变成AutoHide模式。Hole也只能生效一次，之后再进入不会再次下落，也不会触发提示方块。P.S. 原理是在触发位置放一个MovingPlatform和一个Button，并在方块移动到触发位置时将方块移开，来避免方块离开时提示方块消失。</td>
 </tr><tr><td class="nowrap">MoveDirection</td>
-<td class="nowrap">二维向量</td>
+<td class="nowrap">三维向量</td>
 <td>可选，在AutoHide模式下默认为0,0,0，在MoveAway模式下为0,-1,0，在Hole模式下为0,0,1。<a href="../../../syntactic-sugar.html">语法糖</a>。在设置了MovingPlatform/Waypoint的情况下此属性将被忽略。该属性在AutoHide模式下此属性无意义，在其他模式下此属性表示触发方块的移动方向向量。在Hole模式中实际触发位置以及MovingPlatform的初始位置为原来触发位置减去该向量的值。</td>
 </tr></tbody></table><pre title="样例" class="brush: xml">&lt;OtherCube PositionTrigger="70,27,1" MovingBlockSync="Block29"
            PositionCube="69,25,1"&gt;
