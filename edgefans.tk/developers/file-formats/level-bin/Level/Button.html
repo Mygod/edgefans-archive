@@ -265,7 +265,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <td>可选，默认为True。指定按钮是否可见。如果设置为 Null，则该按钮将是半透明的。只有在设置为 True 时按下按钮才有声效。</td>
 </tr><tr><td class="nowrap">DisableCount</td>
 <td class="nowrap">8位自然数</td>
-<td>可选，默认为0。此属性指定了该按钮在这种情况下总共可以被禁用多少次，其应用可见 rodeo 一关。如果一个按钮已经被禁用 @DisableCount 次及以上时任何其他按钮企图再次启用该按钮都会失败。如果 @DisableCount 为 0，该按钮可以被不断地启用。</td>
+<td>可选，默认为0。若按钮在ButtonSequence中则此项无效。此属性指定了该按钮在这种情况下总共可以被禁用多少次，其应用可见 rodeo 一关。如果一个按钮已经被禁用 @DisableCount 次及以上时任何其他按钮企图再次启用该按钮都会失败。如果 @DisableCount 为 0，该按钮可以被不断地启用。</td>
 </tr><tr><td class="nowrap">Mode</td>
 <td class="nowrap">特殊</td>
 <td>可选，默认为StayDown。若按钮在ButtonSequence中则此项无效。按钮有按下（禁用）或弹起（启用）两种状态。StayDown表示按钮在没有被启动的情况下只能被按下一次，离开该按钮后保持被按下（禁用）的状态。StayUp表示按钮可以被按下多次。Toggle表示一旦方块离开按钮该按钮就会被弹起，同时受影响的移动方块将恢复原位。请注意按下非 @Mode=StayDown 的按钮不算禁用按钮！</td>
@@ -280,10 +280,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要影响的移动方块ID。若数据为0表示遍历所有的路点，否则表示遍历数据指定个路点。</td>
 </tr><tr><td class="nowrap">AffectBumpers</td>
 <td class="nowrap">带数据的ID列表</td>
-<td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要影响的撞击器ID，撞击器被影响后将会切换启用/禁用状态。</td>
+<td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要影响的撞击器ID，撞击器被影响后将会切换启用/禁用状态。若该按钮的 @Mode 被设为 Toggle，数据为0则按下按钮时将禁用撞击器，松开时将启用撞击器；数据为1则相反。</td>
 </tr><tr><td class="nowrap">TriggerAchievements</td>
 <td class="nowrap">带数据的ID列表</td>
-<td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要触发的成就ID。数据表示部分成就使用的元数据。（仅用于 Snowblind 成就）</td>
+<td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要触发的成就ID，标准关卡中使用了 1~19，其中ID为5的成就需要以小方块形式激活。数据表示部分成就使用的元数据（仅用于 Snowblind 成就）。<a href="../../../../users/wegfan.html">@WEGFan</a> 猜测可以通过修改 config.bjson 来<a href="../../../../edgetool/customizing-achievements.html">自定义成就</a>。（仅限破解版）</td>
 </tr><tr><td class="nowrap">AffectButtons</td>
 <td class="nowrap">带数据的ID列表</td>
 <td>可选。若按钮在ButtonSequence中则此项无效。指定一堆要影响的按钮ID。设置此项后被引用的按钮将在关卡开始时被禁用，在按下此按钮时目标按钮的启用/禁用状态将被切换。你可以通过将数据设为1来表示默认启用目标按钮。</td>
