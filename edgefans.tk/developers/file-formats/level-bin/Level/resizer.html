@@ -257,7 +257,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <th class="nowrap">数据类型</th>
 <th>备注</th>
 </tr></thead><tbody><tr><td class="nowrap">Position</td>
-<td class="nowrap">三维坐标</td>
+<td class="nowrap">三维向量</td>
 <td>必填。指定方块尺寸调整器的位置，游戏会自动在该点下方添加一个静态方块。Z 坐标 ＞ 关卡高度 或 Z 坐标 ≤ 0 会导致游戏崩溃，X 坐标 ≥ 关卡宽度 或 X 坐标 ＜ 0 或 Y 坐标 ≥ 关卡长度 或 Y 坐标 ＜ 0 会导致该位置虽然在游戏中可见但没有实际效果，也不会添加静态方块，并有几率导致游戏崩溃。若与 <a href="../Level.html">/Level</a>/@ExitPoint 重合，关卡终点将被腐蚀。请注意这里的Z坐标应该在原坐标基础上+1，否则在游戏中将显示不正常！</td>
 </tr><tr><td class="nowrap">Visible</td>
 <td class="nowrap">布尔型</td>
