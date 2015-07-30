@@ -258,7 +258,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <td>可选，默认为 Transparent。指定该点的着色（colorize）。如果没有使用任何纹理，默认会使用全白的。如果所有 Color 都没有填写，那么在游戏中似乎会显示为 #B8B8B8。</td>
 </tr><tr><td class="nowrap">TexCoord</td>
 <td class="nowrap">二维浮点向量</td>
-<td>可选，默认为0,0。指定该点的纹理坐标。有时候该值的范围可能超出(0,0)-(1,1)，此时很可能需要对该值进行加减一个整数来使其重返这个范围内。该值理论上不能和@Color并存。</td>
+<td>可选，默认为0,0。指定该点的纹理坐标。超过 (0,0)-(1,1) 范围的纹理会使用最周围一圈的像素填充。该值理论上不能和@Color并存。</td>
 </tr><tr><td class="nowrap">TexCoord2</td>
 <td class="nowrap">二维浮点向量</td>
 <td>可选，默认为0,0。指定该点的纹理坐标。仅在 RUSH 中出现，其用法不明。</td>
