@@ -260,10 +260,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <td>必填。关卡的标识符。若相同ID的关卡同时安装在游戏中，则只会显示前一个。为了避免冲突，请至少使用五位数作为关卡 ID，并使用一个随机生成的前缀。</td>
 </tr><tr><td class="nowrap">Name</td>
 <td class="nowrap">文本</td>
-<td>必填。关卡名。虽然不推荐使用换行符，但一定要使用的话请使用 <code>&amp;#xA;</code> 换行。</td>
+<td>可选，默认为空。关卡名。虽然不推荐使用换行符，但一定要使用的话请使用 <code>&amp;#xA;</code> 换行。</td>
 </tr><tr><td class="nowrap">TimeThresholds</td>
 <td class="nowrap">16位自然数列表</td>
-<td>必填。由 5 个数字组成，分别表示达到 S+、S、A、B、C 所需的秒数，<a href="mobile-levels.html">请注意这里手机版比较特殊</a>，因此建议将时间设置在 655 秒内。达到 S+、S、A、B、C 所需的时间必须严格递增，否则将无法获得部分评级。</td>
+<td>可选，默认为 <code>1,2,3,4,5</code>。由 5 个数字组成，分别表示达到 S+、S、A、B、C 所需的秒数，<a href="mobile-levels.html">请注意这里手机版比较特殊</a>，因此建议将时间设置在 655 秒内。达到 S+、S、A、B、C 所需的时间必须严格递增，否则将无法获得部分评级。</td>
 </tr><tr><td class="nowrap">Size</td>
 <td class="nowrap">三维大小</td>
 <td>必填。填写关卡大小。</td>
