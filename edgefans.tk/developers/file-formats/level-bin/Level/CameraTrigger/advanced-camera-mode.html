@@ -251,17 +251,17 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <label>语言 </label>
  Chinese, Simplified
 </div>
-<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>　　高级相机模式是 Two Tribes 添加的功能，之所以称之为高级是因为 mobigame 的 EDGE 是 <a href="http://zh.wikipedia.org/wiki/偽三維">2.5D</a>，其中并没有也很难有这样的实现。实际上在真正的三维绘图中高级相机模式中的一些概念都是很常见的。<br />
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>　　高级相机模式是 Two Tribes 添加的功能，之所以称之为高级是因为 mobigame 的 EDGE 是 <a href="https://zh.wikipedia.org/wiki/偽三維">2.5D</a>，其中并没有也很难有这样的实现。实际上在真正的三维绘图中高级相机模式中的一些概念都是很常见的。<br />
 　　注意：高级相机模式的动画即使在暂停时也会继续播放！</p>
 <h3>效果演示</h3>
 <p><embed src="http://www.tudou.com/v/VmstqkRaVJg/&amp;resourceId=112031677_05_02_99&amp;tid=0/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="400"></embed></p>
 <h3>透视投影</h3>
-<p><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-1.jpg~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-1.jpg~original" /></a><br />
-　　透视投影的原理类似于<a href="http://zh.wikipedia.org/wiki/小孔成像">小孔成像</a>（区别在于物和像在孔的同一侧），由于它和眼球的成像（凸透镜成像）效果类似，符合远大近小的规律，因此使用透视投影可以更好地模拟出真实的 3D 世界在眼球中的影像。<br />
-　　简单来说透视投影原理就是：在相机前方选择一个平面使其与观测方向垂直，则在 3D 世界中的任意一点在该平面上的投影点为该点与视点的连线与平面的交点。如下图所示。<br /><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-2.jpg~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-2.jpg~original" /></a><br />
-　　接下来我们谈谈视野（Field of View，常简写为 FoV）大小，视野大小是透视投影特有的。上面我们提到的平面大小是无限的，而人眼观察到的图像大小是有限的，同样地游戏的屏幕大小也是有限的，因此我们能看到的部分与视点连线的夹角大小就称为视野大小，如下图所示。通常情况下视野大小的单位为°或弧度，可惜我们并不知道它在 EDGE 中的单位。<br /><a href="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-3.jpg~original"><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-3.jpg~original" /></a><br />
+<p><a href="https://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-1.jpg~original"><img src="https://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-1.jpg~original" /></a><br />
+　　透视投影的原理类似于<a href="https://zh.wikipedia.org/wiki/小孔成像">小孔成像</a>（区别在于物和像在孔的同一侧），由于它和眼球的成像（凸透镜成像）效果类似，符合远大近小的规律，因此使用透视投影可以更好地模拟出真实的 3D 世界在眼球中的影像。<br />
+　　简单来说透视投影原理就是：在相机前方选择一个平面使其与观测方向垂直，则在 3D 世界中的任意一点在该平面上的投影点为该点与视点的连线与平面的交点。如下图所示。<br /><a href="https://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-2.jpg~original"><img src="https://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-2.jpg~original" /></a><br />
+　　接下来我们谈谈视野（Field of View，常简写为 FoV）大小，视野大小是透视投影特有的。上面我们提到的平面大小是无限的，而人眼观察到的图像大小是有限的，同样地游戏的屏幕大小也是有限的，因此我们能看到的部分与视点连线的夹角大小就称为视野大小，如下图所示。通常情况下视野大小的单位为°或弧度，可惜我们并不知道它在 EDGE 中的单位。<br /><a href="https://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-3.jpg~original"><img src="https://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/perspective-projection-3.jpg~original" /></a><br />
 　　视野（Field of View）与缩放级别（Zoom Level）都是数字越小看得越少，数字越大看得越多但是区别在于缩放级别指的是相机与被观察物体之间的距离，而且小地图的大小会随之改变；而视野则是相机可观察到的角度范围大小，而且小地图的大小不会随之改变。由于人眼的视野有限，如果视野过大就会显得不自然。在上面的视频中你会注意到当 @FieldOfView=180 时远处（或者说四周）的物体看起来不太自然。<br />
-　　最后我们再谈谈观察角度，如下图所示（图中的 @Angle=0 应改为 @Angle=22 ），当 @Angle=22 时观察角度与地面的夹角为 45°，@Angle 增大时夹角减小。同样我们并不知道这里的单位是什么。<br /><img src="http://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/advanced-camera-mode-angle.png~original" /></p>
+　　最后我们再谈谈观察角度，如下图所示（图中的 @Angle=0 应改为 @Angle=22 ），当 @Angle=22 时观察角度与地面的夹角为 45°，@Angle 增大时夹角减小。同样我们并不知道这里的单位是什么。<br /><img src="https://i1264.photobucket.com/albums/jj483/MygodStudio/edgefans/advanced-camera-mode-angle.png~original" /></p>
 <h3>平行投影</h3>
 <p>　　平行投影与太阳光（由于太阳距离很远可近似看成是平行光）投在若干个 3D 物体上在一个平面（如地面）上留下的影子的效果更加接近。平行投影中由于没有视点，也就没有视野大小的概念。不过应该可以通过调整裁剪的平面大小来达到与视野类似的效果，平行投影的观察角度可以靠平面的倾斜角度和投影方向调整，不过反正游戏中也没给你这功能，就不研究了。<br />
 　　在太阳光下飞机在空中打在地面上的影子大小和停在地面上的影子大小差别不大，在平行投影中也是这样，不再是远大近小。东西不论远近，大的投影出来就是大的，小的投影出来就是小的。P.S. 由于在 PC 版的游戏中平行投影效果并不好，我个人猜测 Two Tribes 仿照了太阳光的原理，把相机距离拉得很远，而把视野大小弄得极小来达到平行投影的效果。<br />
@@ -303,7 +303,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
     
   <div class="content">
-    <div style="text-align: center;">Copyright © 2013-2014 <a href="http://mygod.tk/">Mygod Studio™</a>　Powered by <a href="http://drupal.org/">Drupal</a>　Hosted by <a href="http://0ad.info/">0ad.info</a></div>
+    <div style="text-align: center;">Copyright © 2013-2014 <a href="https://mygod.tk/">Mygod Studio™</a>　Powered by <a href="https://drupal.org">Drupal</a></div>
   </div>
 </div>
   </div>
