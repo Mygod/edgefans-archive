@@ -231,16 +231,13 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 其中玩家名存放在：{游戏安装目录}\playername.txt</p>
 <p><strong>新版破解的存档在：%ProgramData%\OUTLAWS\{你的玩家名}\38740\storage\savedata.ttsav<br />
 成就数据在：%ProgramData%\OUTLAWS\{你的玩家名}\38740\stats\achievements.ini</strong><br />
-其中玩家名存放在：{游戏安装目录}\steam_otl.ini，其中Settings节的UserName中，即第35行UserName=之后。<br />
-如果你的电脑无法自动定位%ProgramData%，请手动在以下目录中找：<br />
-XP及以下用户：C:\Documents and Settings\All Users\Application Data\OUTLAWS\{你的玩家名}\38740\storage\savedata.ttsav<br />
-Vista及以上用户：C:\ProgramData\OUTLAWS\{你的玩家名}\38740\storage\savedata.ttsav</p>
-<p><strong>Steam版的存档在：{Steam安装目录}\userdata\{你的Steam用户名ID}\38740\remote\savedata.ttsav</strong></p>
+其中玩家名存放在：{游戏安装目录}\steam_otl.ini，其中Settings节的UserName中，即第35行UserName=之后。</p>
+<p><strong>Steam 版启用云同步时存档在：%SteamPath%\userdata\%ActiveUser%\38740\remote\savedata.ttsav</strong><br />
+其中 %SteamPath% 是 Steam 的安装目录，存放在此注册表项中：HKEY_CURRENT_USER\SOFTWARE\Valve\Steam\SteamPath<br />
+%ActiveUser% 是 Steam 的当前用户 ID，存放在此注册表项中：HKEY_CURRENT_USER\SOFTWARE\Valve\Steam\ActiveProcess\ActiveUser</p>
+<p><strong>Steam 版禁用云同步时存档在：%LocalAppData%\Two Tribes\{游戏标题}\local_savedata.ttsav</strong></p>
 <p><strong>其他版本的存档在：%LocalAppData%\Two Tribes\{游戏标题}\savedata.ttsav</strong><br />
-其中游戏标题就是你启动游戏后标题栏中显示的东西，通常情况下是下面三个之一：EDGE, EDGE Demo, EDGE Epic。<br />
-如果你的电脑无法自动定位%LocalAppData%，请手动在以下目录中找：<br />
-XP及以下用户：%userprofile%\Local Settings\Application Data\Two Tribes\{游戏标题}\savedata.ttsav<br />
-Vista及以上用户：%userprofile%\AppData\Local\Two Tribes\{游戏标题}\savedata.ttsav</p>
+其中游戏标题就是你启动游戏后标题栏中显示的东西，通常情况下是下面三个之一：EDGE, EDGE Demo, EDGE Epic。</p>
 <p>以上各版本的存档可以互相移动、覆盖，存档的格式不明。</p>
 <h3>Android</h3>
 <ul><li>EDGE: /data/data/net.mobigame.edge/files</li>
