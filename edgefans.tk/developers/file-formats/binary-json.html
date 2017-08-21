@@ -235,9 +235,9 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <li><code>HMP</code>：热图。</li>
 </ul><p>在字符串之后是一个 32位整数，表示该文件的版本号，总是为 0x00000001。<br />
 之后是一个 布尔型，仅在 local_savedata.ttsav 中设为 false。<br />
-之后是一个 32位整数，表示压缩部分数据的大小。<br />
-之后是一个 32位整数，压缩部分的 CRC32 校验码。<br />
-最后是压缩部分数据，其大小和上面定义的压缩部分数据大小相同，压缩方式不明。（已排除 ZLib）</p>
+之后是一个 32位整数，表示加密部分数据的大小。<br />
+之后是一个 32位整数，加密部分的 CRC32 校验码。（然而 WEGFan 觉得并不是）<br />
+最后是加密部分数据，其大小和上面定义的加密部分数据大小相同，加密方式不明。（如果在 WinHex 中对加密部分数据与 0xFF 进行异或运算，可以在开头看到正确的数据，后面依然是乱码）</p>
 </div></div></div>  <div id="book-navigation-7" class="book-navigation">
     <ul class="menu clearfix"><li class="first last leaf"><a href="binary-json/ttsav.html">TTSAV 游戏存档</a></li>
 </ul>
