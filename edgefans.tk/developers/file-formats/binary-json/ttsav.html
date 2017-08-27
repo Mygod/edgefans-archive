@@ -20,7 +20,7 @@
 <meta about="/developers/file-formats/binary-json/ttsav" property="sioc:num_replies" content="0" datatype="xsd:integer" />
 <link rel="shortcut icon" href="../../../favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="next" href="../audio.html" />
-<link rel="prev" href="hmp.html" />
+<link rel="prev" href="../binary-json.html" />
 <meta name="Generator" content="Drupal 7 (http://drupal.org)" />
 <link rel="canonical" href="ttsav.html" />
 <link rel="shortlink" href="../../../node/144.html" />
@@ -134,7 +134,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <li class="expanded active-trail"><a href="../../file-formats.html" class="active-trail">EDGE 文件格式</a><ul class="menu clearfix"><li class="first collapsed"><a href="../level-bin.html">.bin 关卡</a></li>
 <li class="collapsed"><a href="../nut.html">.nut 脚本</a></li>
 <li class="leaf"><a href="../ogg.html">.ogg 音乐</a></li>
-<li class="expanded active-trail"><a href="../binary-json.html" class="active-trail">Binary JSON</a><ul class="menu clearfix"><li class="first leaf active-trail"><a href="ttsav.html" class="active-trail active">TTSAV 游戏存档</a></li><li class="last leaf active-trail"><a href="hmp.html">HMP 热图</a></li>
+<li class="expanded active-trail"><a href="../binary-json.html" class="active-trail">Binary JSON</a><ul class="menu clearfix"><li class="first last leaf active-trail"><a href="ttsav.html" class="active-trail active">TTSAV 游戏存档</a></li>
 </ul></li>
 <li class="collapsed"><a href="../audio.html">audio 文件夹</a></li>
 <li class="leaf"><a href="../cos-bin.html">cos.bin</a></li>
@@ -235,13 +235,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
             "completed": true,          // completed
             "time": 12345,              // time
             "prismCount": 10,           // prism count
-            "rank": 5                   // rank == 0: D   rank == 1: C   rank == 2: B
-                                        // rank == 3: A   rank == 4: S   rank == 5: S+
+            "rank": "A"                 // rank
         }
     },
     "settings": {
-        "musicVolume": 100,             // music volume setting
-        "sfxVolume": 100,               // sfx volume setting
+        "musicVolume": 1.0,             // music volume setting
+        "sfxVolume": 1.0,               // sfx volume setting
         "visualFxEnabled": true,        // visual FX enabled
         "fullScreen": false,            // full screen setting
         "altinput": false               // alternative input angle setting
@@ -258,7 +257,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
         }
         "oggMember": true,              // is Steam OGG member
         "achievements": {
-            "winter": [1,2,3,4,5,6]     // winter achievement data
+            "winter": 6                 // winter achievement data
         }
     }
 }</pre></div></div></div>  <div id="book-navigation-7" class="book-navigation">
@@ -266,7 +265,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
         <div class="page-links clearfix">
               <a href="../binary-json.html" class="page-previous" title="返回上一个页面">‹ Binary JSON</a>
                     <a href="../binary-json.html" class="page-up" title="回到上层页面">向上</a>
-                    <a href="hmp.html" class="page-next" title="去下一个页面">HMP 热图 ›</a>
+                    <a href="../audio.html" class="page-next" title="去下一个页面">audio 文件夹 ›</a>
           </div>
     
   </div>
