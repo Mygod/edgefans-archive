@@ -226,7 +226,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <label>语言 </label>
  Chinese, Simplified
 </div>
-<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Binary JSON 文件主要出现在<a href="../../edge/profile-location.html">存档文件夹</a>中，它的扩展名通常是 .ttlead, .ttsav 或 .bjson。<br />
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Binary JSON 文件主要出现在<a href="../../edge/profile-location.html">存档文件夹</a>中，它的扩展名通常是 .ttlead, .ttsav 或 .bjson。你可以使用这个小工具来加密/解密这种文件：<a href="https://github.com/WEGFan/Edge-PC-Savefile-Editor">Edge PC Savefile Editor</a><br />
 它的文件格式如下。<br />
 文件开始是一个以 null (0x00) 为终止的字符串，表示当前文件的类型，可以是以下值之一：</p>
 <ul><li><code>TTSAV</code>：游戏存档。</li>
@@ -234,10 +234,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <li><code>HMD</code>：热图元数据。</li>
 <li><code>HMP</code>：热图。</li>
 </ul><p>在字符串之后是一个 32位整数，表示该文件的版本号，总是为 0x00000001。<br />
-之后是一个 布尔型，仅在 local_savedata.ttsav 中设为 false。<br />
-之后是一个 32位整数，表示加密部分数据的大小。<br />
-之后是一个 32位整数，加密部分的 CRC32 校验码。（然而 WEGFan 觉得并不是）<br />
-最后是加密部分数据，其大小和上面定义的加密部分数据大小相同，加密方式不明。（如果在 WinHex 中对加密部分数据与 0xFF 进行异或运算，可以在开头看到正确的数据，后面依然是乱码）</p>
+之后是一个 布尔型，表示数据部分是否被压缩，仅在 local_savedata.ttsav 中设为 false。<br />
+之后是一个 32位整数，表示数据部分的大小。<br />
+之后是数据部分，其大小和上面定义的大小相同。如果数据部分没有被压缩，则对每个字符按位取反后就是 JSON 字符串，否则需要使用上面的工具进行解压。<br />
+最后是一个 32位自然数，将加密部分和文件开始的字符串（包括 null 字符）连接起来后的按位取反的 CRC32 校验码。<br />
+</p>
 </div></div></div>  <div id="book-navigation-7" class="book-navigation">
     <ul class="menu clearfix"><li class="first leaf"><a href="binary-json/ttsav.html">TTSAV 游戏存档</a></li>
     <li class="last leaf"><a href="binary-json/hmp.html">HMP 热图</a></li>
